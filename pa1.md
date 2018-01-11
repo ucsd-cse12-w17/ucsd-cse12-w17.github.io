@@ -97,7 +97,7 @@ they differ.
 
 ## Getting the Code
 
-FILL
+Instructions [here](https://docs.google.com/document/d/1JUvSvdgo29kXyMCVBuy3T5RipeGOmXAWxn2afkeVUwI/edit?usp=sharing)
 
 ## Code Layout
 
@@ -173,7 +173,7 @@ no “right” set of tests that will succeed all the time.
 
 ## Submitting
 
-FILL
+See Instructions for Getting Code
 
 ## README
 
