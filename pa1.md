@@ -171,11 +171,11 @@ and not others, in order to distinguish their behavior. As a result, you
 should not expect JUnit to be responding with all successes, because there's
 no “right” set of tests that will succeed all the time.
 
-## Submitting
-
-See Instructions for Getting Code
-
 ## README
+
+You will also write a README for the assignment. You should put it in a file
+called `README.txt`, and write your answers in plain text, clearly marking
+them.
 
 1. Pick three of the `Bag` implementations other than `Bag0`. In 150 words
 or less, describe the tests that differ across them, and why the
@@ -193,4 +193,6 @@ Here's an example: “Bag0 is clearly buggy, because under no reasonable
 implementation should the bag claim to be empty after having something
 added.”
 
+## Submitting
 
+See instructions for Getting Code
