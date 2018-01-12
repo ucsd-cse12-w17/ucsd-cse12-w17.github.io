@@ -181,7 +181,7 @@ them.
 or less, describe the tests that differ across them, and why the
 implementations produce those different results. You don't have to talk in
 detail about _all_ of your tests, just the ones that usefully distinguish
-the three implementations you chose.
+three implementations of your choice.
 
 2. Some of the `Bag` implementations are buggy – they have clear mistakes in
 some situations. Others simply differ in behavior. For each implementation,
@@ -193,6 +193,21 @@ Here's an example: “Bag0 is clearly buggy, because under no reasonable
 implementation should the bag claim to be empty after having something
 added.”
 
+## Style
+
+You will be graded on your code's style. It should be consistently indented.
+
+Eclipse has some great auto-formatting options. Consider using the “Source...”
+“Format” option to automatically make your code pretty.
+
+There are style considerations beyond indentation. Choose names for test
+methods and for variables that are descriptive and useful when you see them in
+test output. Consider writing helper methods if you repeatedly use the same set
+of statements to construct or manipulate a `Bag`. Use comments for descriptions
+not captured by your variable names and the natural flow of code.
+
 ## Submitting
 
-See instructions for Getting Code
+You can submit as many times as you like, and you'll get feedback each time.
+See the instructions in Getting Code for how to upload to GradeScope.
+
