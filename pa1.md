@@ -5,10 +5,6 @@ title: "PA1: Testing Shopping Bags"
 
 <h1>{{ page.title }}</h1>
 
-*This assignment will be released at some point on Jan 11, 2018 and
-announced clearly when it is; until the announcement this is under
-development.*
-
 This assignment will teach you to use JUnit to test implementations of an
 interface, and review a number of Java concepts.
 
