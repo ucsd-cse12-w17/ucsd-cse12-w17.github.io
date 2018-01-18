@@ -95,15 +95,15 @@ The example below illustrates the core behavior of both kinds of iterators.
 
 ```
 // Create and populate a list (this should work for either kind of list)
-CSE12List<String> lst = makeList();
-lst.append("a");
-lst.append("b");
-lst.append("c");
-lst.append("d");
-lst.append("e");
+CSE12List<String> contents = makeList();
+contents.append("a");
+contents.append("b");
+contents.append("c");
+contents.append("d");
+contents.append("e");
 
 // We will paginate the list with 2 items per page
-Paginator<String> p = lst.paginate(2);
+Paginator<String> p = contents.paginate(2);
 
 // Check a few pages for their content...
 Page<String> p1 = p.next();
@@ -143,10 +143,11 @@ assertEquals("d", p2Again.next());
 
 assertTrue(p.hasNext());
 ```
-Here are diagrams that should give you an idea of how the above data is structured.
-
-
+Here are diagrams that should give you an idea of how the above data is
+structured.<br><br>
+Using the Doubly Linked List implementation
 <img width="100%" src="./dll.png"><br>
+Using the Array implementation
 <img width="100%" src="./al.png"><br>
 
 ## Testing
