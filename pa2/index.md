@@ -10,19 +10,19 @@ doodle: "/doodle.png"
 
 This assignment will teach you about the structure of lists by having you
 implement an interesting way to iterate over them. It will also teach you how
-to separately test individual components that make up a larger implementation.
+to separately design individual components that make up a larger
+implementation.
 
-## Paginator
+## Pagination
 
 A common pattern in user interfaces is the _pagination_ of results – that is,
-splitting a list of results across pages. We see it all the time; shopping
-sites do it at the bottom of their search results, for example:
+splitting a list of results across pages. Shopping sites do it at the bottom of
+their search results, for example:
 
 <img width="100%" src="./java-beans.png">
 
-The numbers 1 2 3 ... 20 refer to _pages_ of results. The basic idea is to allow for
-page-by-page traversal of results without making a brand-new list for each
-page.
+The numbers 1 2 3 ... 20 refer to _pages_ of results, with page-by page
+traversal via next and previous actions.
 
 ## Problem Structure
 
@@ -31,7 +31,7 @@ This project will have two kinds of iterators that you implement – a
 iterates through the items on a page. You will implement them for two different
 implementations of list – doubly-linked lists and array lists. In total, you'll
 implement those four classes along with tests for them. You'll also implement a
-few list methods that we left out for practice with these structures.
+few list methods that we left out for you to practice with these structures.
 
 The provided classes `CSE12DLList` (`DL` for “doubly-linked”) and
 `CSE12ArrayList` contain the list implementations whose contents will be
@@ -42,20 +42,20 @@ constructor once you decide on a design for it.
 ## List Implementations
 
 We've provided you with mostly complete implementations of a simple array list
-and a simple doubly-linked lists. You will implement two methods (stubbed out
-with TODO comments): `findFirst` and `removeFirst`. Note that you'll be
-implementing each of these methods twice – once for array lists and once for
-doubly-linked lists.
+and a simple doubly-linked lists. You will implement three methods (stubbed out
+with TODO comments): `findFirst`, `removeFirst`, and `paginate`. Note that
+you'll be implementing each of these methods twice – once for array lists and
+once for doubly-linked lists.
 
 There is a file called `TestLists.java` that you can use to write tests for
 these methods. Like in PA1 for Bag implementations, it is parameterized to run
 all the tests for both list implementations, providing a `makeList` method that
 you can use to instantiate new lists.
 
-Implementing these methods is a good place to start, because it will get you
-familiar with the existing list data structures that are in place. The
-description of these methods is in the interface description in
-`CSE12List.java`.
+Implementing the first two of these—`findFirst` and `removeFirst`—is a good
+place to start, because it will get you familiar with the existing list data
+structures that are in place. The description of these methods is in the
+interface description in `CSE12List.java`.
 
 ## Paginator
 
@@ -95,7 +95,7 @@ The example below illustrates the core behavior of both kinds of iterators.
 
 ```
 // Create and populate a list (this should work for either kind of list)
-CSE12List<String> lst = new CSE12DLList<>();
+CSE12List<String> lst = makeList();
 lst.append("a");
 lst.append("b");
 lst.append("c");
@@ -148,7 +148,8 @@ assertTrue(p.hasNext());
 
 You are responsible for testing your implementation. You should test `Page` and
 `Paginator` independently and thoroughly to ensure that they behave as you
-expect. We have set up `TestPaginator` and `TestPage` files for you to use.
+expect. You can write all of your tests in the `TestLists.java` test class that
+we set up for you.
 
 In the grader, your tests will be evaluated by running them against several bad
 implementations, which we will _not_ show you the source code for. You will be
@@ -246,21 +247,6 @@ index field, manipulating references to `Node`s, etc).
 ## Submission and Grading
 
 Get started right away. We'll make an autograder available by Saturday, Jan 20
-via Gradescope.
-
-The grading breakdown will be, of 120 total points (numbers like 4/2 mean 4
-points for implementation, 2 points for tests):
-
-- `removeFirst`/`findFirst` – 4/2 each per implementation (24 total points)
-- `ALPaginator`/`DLPaginator` (40 each, 80 points total)
-    - 9/5 points for next()
-    - 9/5 points for previous()
-    - 2/1 for hasNext(), hasPrevious()
-    - 2/1 for nextIndex(), previousIndex()
-- `ALPage`/`DLPage`
-  - Will not be tested by us individually, since you are defining the constructors!
-  - Will be tested by using `.next()` from the `Paginators`, with the score
-    included there.
-- 6 points for overall style
+via Gradescope, which will show the grading breakdown.
 
 
