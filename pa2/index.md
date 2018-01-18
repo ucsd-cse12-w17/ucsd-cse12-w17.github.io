@@ -1,7 +1,7 @@
 ---
 layout: pa
 title: "PA2: A Page Turner"
-doodle: "../doodle.png"
+doodle: "/doodle.png"
 ---
 
 <h1>{{ page.title }}</h1>
@@ -243,29 +243,6 @@ comments. Write a javadoc header comment on each method you write. Focus the
 header comment on any interesting effects the method has (e.g. changing an
 index field, manipulating references to `Node`s, etc).
 
-## README
-
-- Imagine writing a `Paginator` whose goal is to provide pagination for any
-  list:
-
-  ```
-  class AnyListPaginator<E> extends Paginator<E> {
-    List<E> lst;
-    int perPage;
-    public ListPaginator(List<E> lst, int perPage) {
-      this.lst = lst;
-      this.perPage = perPage;
-    }
-    ... ListIterator method implementation here ...
-  }
-  ```
-
-  Give an overview how you would implement this, assuming that `List` refers to
-  the built-in Java `List` interface, including any additional fields you would
-  add. Don't give a whole implementation, just a few sentences describing your
-  approach, and key methods on the `List` interface that you would use. Keep
-  your answer to under 150 words.
-
 ## Submission and Grading
 
 Get started right away. We'll make an autograder available by Saturday, Jan 20
@@ -285,6 +262,5 @@ points for implementation, 2 points for tests):
   - Will be tested by using `.next()` from the `Paginators`, with the score
     included there.
 - 6 points for overall style
-- 10 points for README question
 
 
