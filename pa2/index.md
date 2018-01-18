@@ -143,6 +143,11 @@ assertEquals("d", p2Again.next());
 
 assertTrue(p.hasNext());
 ```
+Here are diagrams that should give you an idea of how the above data is structured.
+
+
+<img width="100%" src="./dll.png"><br>
+<img width="100%" src="./al.png"><br>
 
 ## Testing
 
