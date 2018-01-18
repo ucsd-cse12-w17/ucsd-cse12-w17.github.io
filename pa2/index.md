@@ -6,8 +6,6 @@ doodle: "/doodle.png"
 
 <h1>{{ page.title }}</h1>
 
-**This will be announced when finalized on Jan 18**
-
 This assignment will teach you about the structure of lists by having you
 implement an interesting way to iterate over them. It will also teach you how
 to separately design individual components that make up a larger
