@@ -1,6 +1,7 @@
 ---
 layout: pa
 title: "PA1: Testing Shopping Bags"
+doodle: "./doodle.png"
 ---
 
 <h1>{{ page.title }}</h1>
