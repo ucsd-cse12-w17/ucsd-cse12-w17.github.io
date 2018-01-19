@@ -97,15 +97,15 @@ The example below illustrates the core behavior of both kinds of iterators.
 
 ```
 // Create and populate a list (this should work for either kind of list)
-CSE12List<String> contents = makeList();
-contents.append("a");
-contents.append("b");
-contents.append("c");
-contents.append("d");
-contents.append("e");
+CSE12List<String> lst = makeList();
+lst.append("a");
+lst.append("b");
+lst.append("c");
+lst.append("d");
+lst.append("e");
 
 // We will paginate the list with 2 items per page
-Paginator<String> p = contents.paginate(2);
+Paginator<String> p = lst.paginate(2);
 
 // Check a few pages for their content...
 Page<String> p1 = p.next();
