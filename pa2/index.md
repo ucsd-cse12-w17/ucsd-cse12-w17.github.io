@@ -232,15 +232,16 @@ There are also a few things you can _assume_ (and correspondingly don't need to
 bother testing).
 
 - The `perPage` parameter will always be greater than 0
-- The various methods that add to a list (e.g. `append`, `prepend`, and so on)
-  will never be passed `null`.
+- The various methods that manipulate list elements (e.g. `append`, `prepend`,
+  `removeFirst`, `findFirst`, and so on), will never be passed `null`.
 - You can assume that the list that created an iterator is not changed between
   calls to the iterator's methods – that is, if you create an iterator, then
   add an element, the iterator doesn't have to carefully take into account that
   addition before calling `next()`. This is a real-world assumption, not simply
   done to simplify the assignment. Real-world code turns this case into an
-  error: you can look up the documentation on “fail-fast iterators” and
-  <a href="https://docs.oracle.com/javase/7/docs/api/java/util/ConcurrentModificationException.html">`ConcurrentModificationException`</a> to see more about why.
+  error: you can look up the documentation on “fail-fast iterators” and <a
+  href="https://docs.oracle.com/javase/7/docs/api/java/util/ConcurrentModificationException.html">`ConcurrentModificationException`</a>
+  to see more about why.
 
 ## Style
 
