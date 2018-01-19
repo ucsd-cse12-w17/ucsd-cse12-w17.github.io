@@ -236,7 +236,7 @@ bother testing).
   addition before calling `next()`. This is a real-world assumption, not simply
   done to simplify the assignment. Real-world code turns this case into an
   error: you can look up the documentation on “fail-fast iterators” and
-  `ConcurrentModificationException` to see more about why.
+  <a href="https://docs.oracle.com/javase/7/docs/api/java/util/ConcurrentModificationException.html">`ConcurrentModificationException`</a> to see more about why.
 
 ## Style
 
