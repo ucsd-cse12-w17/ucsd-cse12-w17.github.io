@@ -11,6 +11,10 @@ implement an interesting way to iterate over them. It will also teach you how
 to separately design individual components that make up a larger
 implementation.
 
+A warning: The time it took you to complete PA1 is probably **not** a good
+predictor of how long PA2 will take. This is more involved. Start early, start
+often.
+
 ## Pagination
 
 A common pattern in user interfaces is the _pagination_ of results – that is,
