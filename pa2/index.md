@@ -214,8 +214,8 @@ There are a few things you should explicitly not do on this assignment.
 
 - Outside of tests, you should never call the constructors for `Node` or the
   list classes (inside tests, it's very much encouraged). The `Paginator` and
-  the `Page` implementations shouldn't be constructing new nodes or lists, only
-  using references to existing ones.
+  the `Page` implementations shouldn't be constructing new nodes or `contents`
+  arrays, only using references to existing ones.
 - The `Paginator` classes should _not_ get references to list objects. They can
   get references to contents, like nodes or arrays, and be passed information
   when constructed, but they should not receive a reference to the list itself.
