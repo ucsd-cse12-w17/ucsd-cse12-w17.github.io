@@ -1,6 +1,6 @@
-#ucsd-cse12-w17.github.io
+# ucsd-cse12-w17.github.io
 Course web site
-##Lecture notes links:
+## Lecture notes links:
 https://ucsd-cse12-w17.github.io/lectures/01-08-mon/notes-b.html
 https://ucsd-cse12-w17.github.io/lectures/01-08-mon/notes.html
 https://ucsd-cse12-w17.github.io/lectures/01-10-wed/01-10-wed.html

@@ -7,7 +7,7 @@ lecture_path='./lectures'
 url_protocol='https://'
 
 master = open('README.md','w')
-master.write('#ucsd-cse12-w17.github.io\nCourse web site\n##Lecture notes links:\n')
+master.write('# ucsd-cse12-w17.github.io\nCourse web site\n## Lecture notes links:\n')
 os.chdir(lecture_path)
 
 
