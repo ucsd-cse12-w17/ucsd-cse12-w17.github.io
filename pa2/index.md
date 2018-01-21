@@ -255,7 +255,6 @@ index field, manipulating references to `Node`s, etc).
 
 ## Submission and Grading
 
-Get started right away. We'll make an autograder available by Saturday, Jan 20
-via Gradescope, which will show the grading breakdown.
-
+Get started right away. We'll make an autograder available by ~~Saturday, Jan
+20~~, Sunday, Jan 21 via Gradescope, which will show the grading breakdown.
 
