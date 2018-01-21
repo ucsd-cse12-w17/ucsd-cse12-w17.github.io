@@ -26,7 +26,7 @@ for lecture in lectures:
     name=f.split('.')
     if name[-1] == 'html':
       url = url_protocol+path+current+f[1:]
-      master.write(url+'\n')
+      master.write(url+'\n\n')
 
   os.chdir('..')
 
