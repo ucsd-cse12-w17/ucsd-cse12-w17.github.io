@@ -255,6 +255,50 @@ index field, manipulating references to `Node`s, etc).
 
 ## Submission and Grading
 
-Get started right away. We'll make an autograder available by ~~Saturday, Jan
-20~~, Sunday, Jan 21 via Gradescope, which will show the grading breakdown.
+You'll submit to the pa2 assignment in Gradescope. What you'll see is output
+like this:
+
+<img width="100%" src="./output.png">
+
+The idea is that you are trying to <a
+href="https://idioms.thefreedictionary.com/separate+the+wheat+from+the+chaff">separate
+the _wheat_ from the _chaff_ </a>. The _wheat_ is our reference implementation:
+your tests should all pass on our implementation. The _chaff_ is 13
+implementations we wrote that are broken in various ways.
+
+Your goal is similar to, but not quite the same as, your goal in PA1 with the
+bag implementations. A really good test suite will pass all tests on our
+reference (the wheat), and have _some_ test fail on each broken implementation (it
+will identify all chaff). You don't have to uniquely distinguish here, just
+distinguish the bad implementations by failing some test.
+
+The names of the chaffs may give hints about what may be wrong with them.  Four
+are related to find/remove, and the other nine are related to Paginators and
+Pages. You can fail some tests on the reference implementation (it will come
+with a small deduction per failed test), and you'll still get credit for each
+chaff that fails a different set of tests from the reference implementation.
+
+*This is all the feedback you will get before submission*. After submission,
+you will be graded on the correctness of your implementation, on your tests,
+and on overall style. This testing-based feedback gives you a way to gain
+confidence in your implementation. If you aren't sure how something should
+behave, add a test and make sure it passes on your implementation and the
+reference implementation. The chaffs don't force you to think of _every_
+possible situation, and our tests may well test more thoroughly still than just
+catching all the chaffs.
+
+The grade breakdown will be:
+
+- 50% implementation
+  - 10% for the two list methods
+  - 20% for each page/paginator combination
+- 40% testing
+  - 1% if your tests all pass the reference implementation
+  - 1% point _deduction_ for each test that fails the reference implementation
+    (max 5% deduction)
+  - 3% for each chaff that you detect (13 chaffs total)
+- 10% style and design
+
+There will be additional (significant) deductions for violating the DO NOT
+constraints above.
 
