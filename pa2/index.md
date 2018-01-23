@@ -163,6 +163,21 @@ In the grader, your tests will be evaluated by running them against several bad
 implementations, which we will _not_ show you the source code for. You will be
 able to see feedback on this via the autograder.
 
+### Testing for Exceptions
+
+You can test for exceptions by using the `expected` annotation on a test:
+
+```
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void indexOutOfBounds() {
+		CSE12List<String> lst = makeList();
+		lst.getAt(4);
+	}
+```
+
+For example, for testing that a method throws a `NoSuchElementException`, you'd
+replace `IndexOutOfBounds.class` with the name `NoSuchElementException.class`.
+
 ## Checklist
 
 You should make sure to do all of the following:
