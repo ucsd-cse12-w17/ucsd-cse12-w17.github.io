@@ -15,9 +15,13 @@ https://ucsd-cse12-w17.github.io/lectures/01-17-wed-b/notes-b.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-17-wed-c/notes-c.html
 
+https://ucsd-cse12-w17.github.io/lectures/01-24-wed-b/notes.html
+
 https://ucsd-cse12-w17.github.io/lectures/01-19-fri-c/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-12-fri/notes-c.html
+
+https://ucsd-cse12-w17.github.io/lectures/01-24-wed-c/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-19-fri-b/notes.html
 
