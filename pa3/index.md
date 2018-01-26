@@ -148,7 +148,9 @@ boolean availableNeighbor(Square[][] contents, Square s, int rowOffset, int colO
 ```
 
 You're free to not write this method, but doing it first could give you some
-useful practice.
+useful practice, and come in handy later. You also might find variations on it
+helpful, that return a `Square` if it is available, or that take a
+`SearchWorklist` and add the element if it's available, etc.
 
 ## Testing
 
@@ -180,3 +182,4 @@ questions:
 
 A grader with wheat and chaff implementations will be made available by FILL,
 along with a complete grade breakdown.
+
