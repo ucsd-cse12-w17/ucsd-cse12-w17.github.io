@@ -90,9 +90,10 @@ The fields are:
   searching. They contain references to the corresponding `Square`s that are in
   the `contents` array.
 
+
 ## The Search Algorithm
 
-The search algorithm we will use was presented in class:
+The search algorithm we will use was presented in class, and is rewritten here:
 
 ```
 initialize wl to be a new empty worklist (stack _or_ queue)
@@ -115,4 +116,13 @@ You will implement this algorithm, in Java, in the `solve` method of
 contains the start square, the finish square, and an array containing all the
 squares. The `start` and `finish` fields hold references to `Square` instances
 that are at the corresponding locations in the `contents` array.
+
+There is one constraint on your implementation: When checking neighbors, you
+_must_ add them to the worklist in the order North, East, South, West. So you
+should first add (if it is not a wall or out of bounds) the `Square` one row
+higher, then the `Square` one column higher, then one row lower, then one
+column lower. Our reference implementation uses this order and you should as
+well. Note that this is the order in which `add` should be called, which is
+different from the order they will appear in the worklist!
+
 
