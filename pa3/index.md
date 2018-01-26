@@ -9,10 +9,17 @@ doodle: "/doodle.png"
 **This is in progress; we'll announce when it is final.**
 
 This assignment will teach you how to use stacks and queues as worklists, how
-to implement an important search algorith, and how the worklist choice affects
+to implement an important search algorithm, and how the worklist choice affects
 the algorithm.
 
-This assignment is closer in how involved it is to PA1 than to PA2.
+## Writeup Quiz
+
+You must submit, by Monday midnight and _before asking for tutor help_, the
+following quiz about this writeup. Read the whole writeup and do this quiz
+before starting to code. Submitting the quiz and getting at least half the
+questions right is worth 2% of your assignment grade.
+
+<link>
 
 ## The Structure of a Maze Solver
 
@@ -118,16 +125,32 @@ You will implement this algorithm, in Java, in the `solve` method of
 worklist to use. To test the maze, you can pass in different implementations of
 the worklist, and sample mazes.
 
+Note that, for testing, returning `null` is how your implementation indicates
+that there is no possible path from the source to the target.
+
 There is one constraint on your implementation: When checking neighbors, you
 _must_ add them to the worklist in the order North, East, South, West. So you
 should first add (if it is not a wall or out of bounds) the `Square` one row
 higher, then the `Square` one column higher, then one row lower, then one
 column lower. Our reference implementation uses this order and you should as
-well. Note that this is the order in which `add` should be called, which is
-different from the order they will appear in the worklist!
+well. Note that this is the order in which `add` should be called, which may
+be different from the order they will appear in the worklist.
 
+One place where our implementation got surprisingly complicated, and where we
+introduced a helper method, is in checking for available neighbors. It might be
+useful to introduce a method that checks if an offset from a particular
+coordinate is an empty square; this method might have a signature like
 
-##Testing
+```
+// Return true if the location of s, offset by rowOffset and colOffset, is in
+// bounds and not a wall, false otherwise
+boolean availableNeighbor(Square[][] contents, Square s, int rowOffset, int colOffset)
+```
+
+You're free to not write this method, but doing it first could give you some
+useful practice.
+
+## Testing
 
 You will use JUnit to test your Maze solutions. The output of your solution
 will be of type `String[]` (see method `showSolution()`). To build your
@@ -140,3 +163,20 @@ you exactly which parts of your maze are incorrect, simply run the
 `formatMaze()` helper function to your actual and expected Mazes, and
 `assertEquals()` them.
 
+## README
+
+You must write a `README` file that contains answers to the following
+questions:
+
+- In your implementation, could the `setPrevious()` method ever be called twice
+  on the same square during a single run of `solve()`?
+
+- Argue for or against this statement: “Solving a solvable maze with the queue
+  worklist will always produce a path with length less than or equal to solving
+  the maze with the stack worklist.” Either provide a counterexample, or write
+  a sentence or two about why this must be true.
+
+## Grading
+
+A grader with wheat and chaff implementations will be made available by FILL,
+along with a complete grade breakdown.
