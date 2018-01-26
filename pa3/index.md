@@ -90,6 +90,8 @@ The fields are:
   searching. They contain references to the corresponding `Square`s that are in
   the `contents` array.
 
+The `Maze` class has a useful constructor just for testing, which we describe
+in the testing section below.
 
 ## The Search Algorithm
 
@@ -112,10 +114,9 @@ if the loop ended, return null (no path found)
 ```
 
 You will implement this algorithm, in Java, in the `solve` method of
-`MazeSolver`. The parameters of `MazeSolver` are a `Maze` instance, which
-contains the start square, the finish square, and an array containing all the
-squares. The `start` and `finish` fields hold references to `Square` instances
-that are at the corresponding locations in the `contents` array.
+`MazeSolver`. The parameters of `MazeSolver` are a `Maze` instance and a
+worklist to use. To test the maze, you can pass in different implementations of
+the worklist, and sample mazes.
 
 There is one constraint on your implementation: When checking neighbors, you
 _must_ add them to the worklist in the order North, East, South, West. So you
@@ -125,4 +126,17 @@ column lower. Our reference implementation uses this order and you should as
 well. Note that this is the order in which `add` should be called, which is
 different from the order they will appear in the worklist!
 
+
+##Testing
+
+You will use JUnit to test your Maze solutions. The output of your solution
+will be of type `String[]` (see method `showSolution()`). To build your
+expected maze output, you can type it out by hand, or print a Maze to Console,
+copy it and make changes to it.
+
+You can use the `assertArrayEquals()` method to check if your Maze solution
+matches the expected solution. If you want a more detailed solution that tells
+you exactly which parts of your maze are incorrect, simply run the
+`formatMaze()` helper function to your actual and expected Mazes, and
+`assertEquals()` them.
 
