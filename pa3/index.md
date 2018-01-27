@@ -220,6 +220,7 @@ Here is what the JUnit output looks like on a failed solution:
 Note that this is assuming a StackWorklist was used. The JUnit output will show you what segments of your mazes were different (in this case, rows 1-3).
 
 
+
 ## README
 
 You must write a `README` file that contains answers to the following
