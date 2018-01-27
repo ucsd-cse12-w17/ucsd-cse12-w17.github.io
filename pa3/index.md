@@ -206,13 +206,19 @@ Note that these tests fail in the starter code, because `solve` is
 unimplemented! It will be your job to make them pass, and to thoroughly test
 the rest of your implementation.
 
-<img src="./junit%20output.png">
 
 You can use the `assertArrayEquals()` method to check if your Maze solution
 matches the expected solution. If you want a more detailed solution that tells
 you exactly which parts of your maze are incorrect, simply run the
 `formatMaze()` helper function to your actual and expected Mazes, and
 `assertEquals()` them.
+
+Here is what the JUnit output looks like on a failed solution:
+
+<img src="./junit%20output.png">
+
+Note that this is assuming a StackWorklist was used. The JUnit output will show you what segments of your mazes were different (in this case, rows 1-3).
+
 
 ## README
 
