@@ -244,8 +244,9 @@ questions:
 A grader with wheat and chaff implementations will be made available by Monday,
 Jan 29, along with a complete grade breakdown. The rough grade breakdown is:
 
+- 2% quiz
 - 15% README
 - 25% testing
-- 10% style
+- 8% style
 - 50% implementation correctness
 
