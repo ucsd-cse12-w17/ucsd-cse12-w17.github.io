@@ -10,9 +10,12 @@ This assignment will teach you how to use stacks and queues as worklists, how
 to implement an important search algorithm, and how the worklist choice affects
 the algorithm.
 
+_This assignment draws ideas from an assignment by Prof Langlois and Alvarado,
+which in turn drew from a CSCI 151 lab assignment from Oberlin college._
+
 ## Writeup Quiz
 
-You must submit, by Monday midnight and _before asking for tutor help_, the
+You must submit, by Monday at 11:59pm and _before asking for tutor help_, the
 following quiz about this writeup. Read the whole writeup and do this quiz
 before starting to code. Submitting the quiz and getting at least half the
 questions right is worth 2% of your assignment grade.
@@ -77,7 +80,7 @@ manipulate and access these fields during the search algorithm.
 
 The `Maze` class represents a rectangular maze with obstacles, a start, and a
 finish. Since it just represents data, and the fields don't change via any
-methods on the class (indeed, it has no methods), we make them all `final` and
+methods on the class, we make them all `final` and
 `public`, which makes access easier. So to access the `cols` field of a `Maze`
 instance with a reference stored in a variable `m`, just write `m.cols`.
 
