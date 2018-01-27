@@ -129,12 +129,13 @@ Note that, for testing, returning `null` is how your implementation indicates
 that there is no possible path from the source to the target.
 
 There is one constraint on your implementation: When checking neighbors, you
-_must_ add them to the worklist in the order North, East, South, West. So you
-should first add (if it is not a wall or out of bounds) the `Square` one row
-higher, then the `Square` one column higher, then one row lower, then one
-column lower. Our reference implementation uses this order and you should as
-well. Note that this is the order in which `add` should be called, which may
-be different from the order they will appear in the worklist.
+_must_ add them to the worklist in the order East, South, West, North. So you
+should first add (if it is not a wall or out of bounds) the `Square` one column
+to the right, then the `Square` one row above (one lower index, because the top
+row is row 0), then one column to the left, then one row above (one higher
+index). Our reference implementation uses this order and you should as well.
+Note that this is the order in which `add` should be called, which may be
+different from the order they will appear in the worklist.
 
 One place where our implementation got surprisingly complicated, and where we
 introduced a helper method, is in checking for available neighbors. It might be
@@ -154,10 +155,58 @@ helpful, that return a `Square` if it is available, or that take a
 
 ## Testing
 
-You will use JUnit to test your Maze solutions. The output of your solution
-will be of type `String[]` (see method `showSolution()`). To build your
-expected maze output, you can type it out by hand, or print a Maze to Console,
-copy it and make changes to it.
+You should test your solver. Here's some advice and help on doing it.
+
+First, there is a constructor for `Maze` that accepts a `String[]` as an
+argument. There is an example—the one we did in class—provided for you. The
+input uses a plain text format where:
+
+- `#` indicates a wall
+- `_` indicates an empty space
+- `F` indicates the finish square
+- `S` indicates the start square
+
+For example, the maze from class would be written:
+
+```
+#_#_
+____
+_##S
+F___
+```
+
+See the example provided test for how to express this as a use of the `Maze`
+constructor.
+
+On a successful run of a solvable maze, your `solve` method will have set
+previous pointers from `finish` back to `start`. We wrote a method called
+`showSolution` that will produce a similar array as a result, but with a `*`
+for each square that was part of the path from start to finish. You can
+construct these arrays (again, see the example for how), and use a helper we
+provided to test them. For this example, the solution with a stack, and the add
+order specified above, is:
+
+```
+#_#_
+****
+*##S
+F___
+```
+
+With a `QueueWorklist`, the answer should be
+
+```
+#_#_
+____
+_##S
+F***
+```
+
+Note that these tests fail in the starter code, because `solve` is
+unimplemented! It will be your job to make them pass, and to thoroughly test
+the rest of your implementation.
+
+<img src="./junit%20output.png">
 
 You can use the `assertArrayEquals()` method to check if your Maze solution
 matches the expected solution. If you want a more detailed solution that tells
@@ -171,15 +220,27 @@ You must write a `README` file that contains answers to the following
 questions:
 
 - In your implementation, could the `setPrevious()` method ever be called twice
-  on the same square during a single run of `solve()`?
+  on the same square during a single run of `solve()`? Give an example of when
+  it would happen, or argue why it can't.
 
-- Argue for or against this statement: “Solving a solvable maze with the queue
+- Argue for or against this statement: “Solving a solvable maze with a queue
   worklist will always produce a path with length less than or equal to solving
   the maze with the stack worklist.” Either provide a counterexample, or write
   a sentence or two about why this must be true.
 
+- Argue for or against this statement: “Solving a solvable maze with a queue
+  worklist will always visit equal or fewer squares than solving the maze with
+  a stack worklist.” Either provide a counterexample, or write a sentence or
+  two about why this must be true.
+
+
 ## Grading
 
 A grader with wheat and chaff implementations will be made available by FILL,
-along with a complete grade breakdown.
+along with a complete grade breakdown. The rough grade breakdown is:
+
+- 15% README
+- 25% testing
+- 10% style
+- 50% implementation correctness
 
