@@ -132,8 +132,8 @@ that there is no possible path from the source to the target.
 There is one constraint on your implementation: When checking neighbors, you
 _must_ add them to the worklist in the order East, South, West, North. So you
 should first add (if it is not a wall or out of bounds) the `Square` one column
-to the right, then the `Square` one row below (one lower index, because the top
-row is row 0), then one column to the left, then one row above (one higher
+to the right, then the `Square` one row below (one _higher_ index, because the
+top row is row 0), then one column to the left, then one row above (one _lower_
 index). Our reference implementation uses this order and you should as well.
 Note that this is the order in which `add` should be called, which may be
 different from the order they will appear in the worklist.
