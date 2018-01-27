@@ -6,8 +6,6 @@ doodle: "/doodle.png"
 
 <h1>{{ page.title }}</h1>
 
-**This is in progress; we'll announce when it is final.**
-
 This assignment will teach you how to use stacks and queues as worklists, how
 to implement an important search algorithm, and how the worklist choice affects
 the algorithm.
@@ -19,7 +17,7 @@ following quiz about this writeup. Read the whole writeup and do this quiz
 before starting to code. Submitting the quiz and getting at least half the
 questions right is worth 2% of your assignment grade.
 
-<link>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeJ7wS4o-2shvnV3Sz99c3E3nHDmqtcurURlHg3sHK-MwJqTw/viewform">https://docs.google.com/forms/d/e/1FAIpQLSeJ7wS4o-2shvnV3Sz99c3E3nHDmqtcurURlHg3sHK-MwJqTw/viewform</a>
 
 ## The Structure of a Maze Solver
 
@@ -243,8 +241,8 @@ questions:
 
 ## Grading
 
-A grader with wheat and chaff implementations will be made available by FILL,
-along with a complete grade breakdown. The rough grade breakdown is:
+A grader with wheat and chaff implementations will be made available by Monday,
+Jan 29, along with a complete grade breakdown. The rough grade breakdown is:
 
 - 15% README
 - 25% testing
