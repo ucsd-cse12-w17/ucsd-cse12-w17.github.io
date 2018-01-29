@@ -116,7 +116,7 @@ while wl is not empty:
   else
     for each available neighbor of current
       set the previous of the neighbor to current
-      add previous to the worklist (push or enqueue)
+      add the neighbor to the worklist (push or enqueue)
 
 if the loop ended, return null (no path found)
 ```
