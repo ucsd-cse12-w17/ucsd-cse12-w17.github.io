@@ -10,30 +10,37 @@ This assignment will give you experience working with big-Ο/θ/Ω
 representations, practice matching them to implementations, and perform
 measurements of the runtime of different methods.
 
+_This assignment is inspired by a lab in Swarthmore College's CS35_
+
+## Deadlines and Milestones
+
+You will submit a quiz and implementations of `measure` and `measurementsToCSV`
+by _Monday midnight_, with the rest due by _Wednesday midnight_.
+
 ## Mystery Functions
 
 We have provided you with a (FILL `.jar/.class`) file that contains implementations of the following methods:
 
 ```
-	public static void m1(int n) {
+	public static void f1(int n) {
 		int a = 0;
 		for (int i = 0; i < n; i += 1) {
 			a = i;
 		}
 	}
-	public static void m2(int n) {
+	public static void f2(int n) {
 		int a = 0;
 		for(int i = 0; i < n; i += 2) {
 			a = i;
 		}
 	}
-	public static void m3(int n) {
+	public static void f3(int n) {
 		int a = 0;
 		for(int i = 0; i < n * n; i += 1) {
 			a = i;
 		}
 	}
-	public static void m4(int n) {
+	public static void f4(int n) {
 		int a = 0;
 		for(int i = 0; i < n; i += 1) {
 			for(int j = i; i < n; j += 1) {
@@ -41,7 +48,7 @@ We have provided you with a (FILL `.jar/.class`) file that contains implementati
 			}
 		}
 	}
-	public static void m5(int n) {
+	public static void f5(int n) {
 		int a = 0;
 		for(int i = 0; i < n * n; i += 1) {
 			for(int j = 0; j <= i / 2; j += 1) {
@@ -49,7 +56,7 @@ We have provided you with a (FILL `.jar/.class`) file that contains implementati
 			}
 		}
 	}
-	public static void m6(int n) {
+	public static void f6(int n) {
 		int k = 1, a = 0;
 		for(int i = 0; i < n; i += 1) {
 			for(int j = 0; j <= k * 2; j += 1) {
@@ -153,12 +160,46 @@ B,41,4038
 ### Strategies for Measuring
 
 You can use the `measure` and `measurementToCSV` methods to produce data about
-how the functions behaved in terms of their runtime.
+how the functions behaved in terms of their runtime. You should fill in the
+`main` method with whatever you find useful for using your measuring methods to
+compare the mystery implementations. You have total choice in how you implement
+this – you can add new helpers, print the CSV format out to a file, copy/paste
+it into a spreadsheet, use a tool you like for plotting, etc. The goal is to
+use measurements to identify the different implementations. Feel free to look
+up documentation for writing Strings out to files and use it, or use
+`System.out.println` and copy/paste the output, etc. It's probably pretty
+expedient to copy the data into Excel or a Google Sheet.
 
-## Deliverables
+There are a few high-level strategies to consider:
+
+- If an implementation is very slow, it could take a really long time to
+  measure it for large n. If you notice something is taking a long time, stop
+  the program and try the same mystery methods on a smaller input range. Does
+  the smaller range tell you anything useful?
+- Some of the methods might have similar big-O bounds, but have different
+  constants that can be measured in terms of absolute time.
+- Some of the methods might take vastly different times to run on certain
+  inputs, so plotting them next to one another will show one with a flat line
+  at 0 and the other with some interesting curve. Make sure to check what the
+  relative numbers are when inspecting the output.
+
+You will use these measurements to figure out which mystery method matches the
+implementations above, and generate two graphs to justify your answers. See
+below for more explanation.
+
+### Deliverables for Measurements
 
 You must hand in:
 
 - `Measure.java` with the implementations above
 - A PDF file called `Matching.pdf` that contains:
-  - 
+  - A listing that matches each of mysteryA-F to an implementation f1-6 above 
+  - Two graphs that justify a few choices above. These don't need to
+    exhaustively describe all of your matchings, but they must be generated
+    from real data that you measured using `measure`, and they must show an
+    interesting relationship that helps justify the matching.
+
+    FILL a good picture here
+
+
+
