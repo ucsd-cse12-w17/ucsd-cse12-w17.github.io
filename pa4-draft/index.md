@@ -15,11 +15,11 @@ _This assignment is inspired by a lab in Swarthmore College's CS35_
 ## Deadlines and Milestones
 
 You will submit a quiz and implementations of `measure` and `measurementsToCSV`
-by _Monday midnight_, with the rest due by _Wednesday midnight_.
+by _Monday at 11:59pm_, with the rest due by _Wednesday at 11:59pm_
 
 We will provide implementations of `measure` and `measurementToCSV` on Tuesday;
 as a result no late points will be given for submissions of code submitted past
-Monday night.
+Monday night, no exceptions.
 
 There will be two submission entries in Gradescope, one for your code (due
 Monday midnight), and the other for your writeups (due Wednesday midnight),
@@ -210,4 +210,13 @@ You must hand in:
     FILL a good picture here
 
 
+## Grade Breakdown
 
+- 15% startup work
+  - 3% writeup quiz
+  - 4% `measurementsToCSV`
+  - 8% `measure`
+- 24% big-O descriptions of f1-6
+- 6% correct matching
+- 10% two relevant graphs
+- ... FILL ...
