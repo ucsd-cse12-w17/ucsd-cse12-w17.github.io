@@ -17,6 +17,14 @@ _This assignment is inspired by a lab in Swarthmore College's CS35_
 You will submit a quiz and implementations of `measure` and `measurementsToCSV`
 by _Monday midnight_, with the rest due by _Wednesday midnight_.
 
+We will provide implementations of `measure` and `measurementToCSV` on Tuesday;
+as a result no late points will be given for submissions of code submitted past
+Monday night.
+
+There will be two submission entries in Gradescope, one for your code (due
+Monday midnight), and the other for your writeups (due Wednesday midnight),
+which will be submitted as PDFs.
+
 ## Mystery Functions
 
 We have provided you with a (FILL `.jar/.class`) file that contains implementations of the following methods:
