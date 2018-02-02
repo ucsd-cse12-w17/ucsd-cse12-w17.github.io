@@ -298,6 +298,10 @@ You will use these measurements to figure out which mystery method matches the
 implementations above, and generate two graphs to justify your answers. See
 below for more explanation.
 
+### Creating Graphs from the data
+
+A short guide on how to create line charts can be found [here](https://docs.google.com/document/d/1vwckO76TrBT8B5E4xQ2-v2OXncLa6SQWuaQkNZaCPB0/edit?usp=sharing). You're free to do this any way you like, as long as you have a meaningful graph to compare different implementation's runtimes.
+
 ### Deliverables for Measurements
 
 You must hand in:
