@@ -351,6 +351,7 @@ There are four artifacts to submit for this PA:
 - 5% final code and README – we will just check that you did _something_
   resonable here, to help show where the data for the matching came from
 - 40% matching activity
-  - 24% big-O descriptions of f1-6
-  - 6% correct matching
-  - 10% three relevant graphs
+  - 18% big-O descriptions of f1-6
+  - 7% correct matching
+  - 15% three relevant graphs with descriptions
+
