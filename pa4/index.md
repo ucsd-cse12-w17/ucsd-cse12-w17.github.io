@@ -185,7 +185,7 @@ through the measurement process.
 
 #### The `measure` Method
 
-You _must_ write the following two methods in the `Measurements` class:
+You _must_ write the following two methods in the `Measurement` class:
 
 ```
 public static List<Measurement> measure(String[] toRun, int startN, int stopN)`
