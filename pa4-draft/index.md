@@ -296,11 +296,7 @@ There are a few high-level strategies to consider:
 
 You will use these measurements to figure out which mystery method matches the
 implementations above, and generate three graphs to justify your answers.
-
-
-### Creating Graphs from the data
-
-A short guide on how to create line charts can be found [here](https://docs.google.com/document/d/1vwckO76TrBT8B5E4xQ2-v2OXncLa6SQWuaQkNZaCPB0/edit?usp=sharing). You're free to do this any way you like, as long as you have a meaningful graph to compare different implementation's runtimes.
+ 
 
 ### Deliverables for Measurements
 
@@ -311,6 +307,7 @@ You will hand in:
 - All of your code, in the assignment `pa4-final-code`, by the usual gradescope
   handin
 - On the _fourth page and beyond_ in your `pa4.pdf`:
+  - The BigO bounds for each implementation f1-6.
   - A listing that matches each of mysteryA-F to an implementation f1-6 above 
   - Three graphs that justify a few choices above. These don't need to
     exhaustively describe all of your matchings, but they must be generated
