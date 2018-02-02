@@ -10,24 +10,106 @@ This assignment will give you experience working with big-Ο/θ/Ω
 representations, practice matching them to implementations, and perform
 measurements of the runtime of different methods.
 
-_This assignment is inspired by a lab in Swarthmore College's CS35_
+_This assignment is inspired by a combination of a lab in Swarthmore College's
+CS35, and by a similar assignment by Marina Langlois in CSE12 at UCSD_
 
 ## Deadlines and Milestones
 
 You will submit a quiz and implementations of `measure` and `measurementsToCSV`
-by _Monday at 11:59pm_, with the rest due by _Wednesday at 11:59pm_
+(described below) by _Monday at 11:59pm_, with the rest due by _Wednesday at
+11:59pm_.
 
-We will provide implementations of `measure` and `measurementToCSV` on Tuesday;
-as a result no late points will be given for submissions of code submitted past
-Monday night, no exceptions.
+We will provide implementations of `measure` and `measurementsToCSV` on
+Tuesday; as a result no late points will be given for submissions of that code
+submitted past Monday night, no exceptions.
 
-There will be two submission entries in Gradescope, one for your code (due
-Monday midnight), and the other for your writeups (due Wednesday midnight),
-which will be submitted as PDFs.
+There will be three submission entries in Gradescope, one for your initial code
+(due Monday midnight), and two others for your final submission: one for for
+your writeup (as a PDF) and one for your final code. Make sure you know how to
+generate and submit a PDF _early on_ in the assignment process.
+
+Read the whole writeup before starting – there are several different pieces of
+the assignment you will need to hand in.
+
+## Big-O Justification
+
+Justify your answers for questions 1, 3, 7, and 9 in the PA review quiz.
+
+If you are justifying the positive direction, give choices of `n0` and `C`. For
+big-Θ, make sure to justify both big-O and big-Ω.
+
+If you are justifying the negative direction, indicate which term(s) can't work
+because one is guaranteed to grow faster or slower than the other.
+
+As a quick guide, here is an ordering of functions from slowest-growing
+(indeed, the first two _shrink_ as n increases) to fastest-growing that you
+might find helpful:
+
+- f(n) = 1/(n<sup>2</sup>)
+- f(n) = 1/n
+- f(n) = 1
+- f(n) = log(n)
+- f(n) = sqrt(n)
+- f(n) = n
+- f(n) = n<sup>2</sup>
+- f(n) = n<sup>3</sup>
+- f(n) = n<sup>4</sup>
+- ... and so on for constant polynomials ...
+- f(n) = 2<sup>n</sup>
+- f(n) = n!
+- f(n) = n<sup>n</sup>
+
+Provide this written up on the _first_ page of `pa4.pdf`.
+
+## List Analysis
+
+Consider the two files [CSE12ArrayList.java](./CSE12ArrayList.java) and
+[CSE12DLList.java](./CSE12DLList.java), which are the starter files from PA2.
+Answer the following questions, and justify them with one or two sentences
+each:
+
+- Give a tight big-O bound for the _best case_ running time of `prepend` in
+  CSE12ArrayList
+- Give a tight big-O bound for the _best case_ running time of `prepend` in
+  CSE12DLList
+- Give a tight big-O bound for the _worst case_ running time of `prepend` in
+  CSE12ArrayList
+- Give a tight big-O bound for the _worst case_ running time of `prepend` in
+  CSE12DLList
+- Give a tight big-O bound for the _best case_ running time of `append` in
+  CSE12ArrayList
+- Give a tight big-O bound for the _best case_ running time of `append` in
+  CSE12DLList
+- Give a tight big-O bound for the _worst case_ running time of `append` in
+  CSE12ArrayList
+- Give a tight big-O bound for the _worst case_ running time of `append` in
+  CSE12DLList
+
+In all cases, give answers in terms of the _current size of the list_.
+
+Notable points to consider:
+
+- Creating an array takes time proportional to the length of the array
+- When considering the running time of a method, make sure to take into
+  account any helpers methods it uses!
+
+Example for `getAt` in the `CSE12DLList` class:
+
+    The getAt method is O(1) in the best case, when the index is 0. In this
+    case it will do constant work checking the index and immediately return the
+    first element, never entering the while loop.
+
+    The getAt method is O(n) in the worst case, because the index could be at
+    the end of the list (for example, index n - 1). In this case, the while
+    loop will run n times, spending constant time on each iteration, resulting
+    in overall O(n) number of steps taken.
+
+Provide this written up on the _second and third_ pages of `pa4.pdf`.
 
 ## Mystery Functions
 
-We have provided you with a (FILL `.jar/.class`) file that contains implementations of the following methods:
+We have provided you with a `.jar` file that contains implementations of the
+following methods:
 
 ```
 	public static void f1(int n) {
@@ -76,17 +158,17 @@ We have provided you with a (FILL `.jar/.class`) file that contains implementati
 ```
 
 However, in that file, they are called `mysteryA-F`, and they are in a
-different order, and we don't provide the source. You have two tasks:
-determining a tight big-O bound for each method by analyzing the source, and
-determining which mystery method corresponds to the implementations above by
-measuring against provided (but hidden) implementation.
+different order, and we don't provide the source of that file. You have two
+tasks: determining a tight big-O bound for each method labeled 1-6 analyzing
+the source above, and determining which mystery method A-F corresponds to the
+implementations above by measuring against provided (but hidden)
+implementation.
 
 ### Identifying Bounds from Code
 
 Determine a _tight_ big-O bound for each function, and justify it with a few
 sentences. Give only the most relevant term, so use, for example _O(n)_, not
-_O(4n + 2)_ Provide this written up in a file called `MysteryBounds.pdf`, and
-clearly label each argument with a number 1-6.
+_O(4n + 2)_ Provide this written up on the _fourth_ page of `pa4.pdf`.
 
 ### Measuring Implementations
 
@@ -145,13 +227,15 @@ equal to `"A"` and 61 of which will have `name` equal to `"B"`. Each of the 61
 for each name will have a different `valueOfN` from 40 to 100, and each will
 have a different number of nanoseconds (as was measured).
 
-### The `measurementToCSV` method
+### The `measurementsToCSV` method
 
-The `measurementToCSV` method takes a list of measurements (for example, as
+The `measurementsToCSV` method takes a list of measurements (for example, as
 returned from `measure`) and generates a comma-separated-values `String` of the
 measurements. It should have the following format, where the first row is a
 literal header row and the other rows are example data. Note that this data is
 completely made up, and may not match your measurements.
+
+You might choose to put all of the measurements for a single letter together:
 
 ```
 name,n,nanoseconds
@@ -165,9 +249,28 @@ B,41,4038
 ... many rows for B ...
 ```
 
+You might also choose to put all of the measurements for a single round of `n`
+together:
+
+```
+name,n,nanoseconds
+A,40,1034
+B,40,1034
+A,41,1039
+B,41,4038
+A,42,2033
+B,42,4038
+... many alternating rows of A, B ...
+A,100,432
+B,100,8038
+```
+
+Either layout is fine, do what makes sense to you, or what matches your
+`measure` function best, etc.
+
 ### Strategies for Measuring
 
-You can use the `measure` and `measurementToCSV` methods to produce data about
+You can use the `measure` and `measurementsToCSV` methods to produce data about
 how the functions behaved in terms of their runtime. You should fill in the
 `main` method with whatever you find useful for using your measuring methods to
 compare the mystery implementations. You have total choice in how you implement
@@ -202,13 +305,34 @@ You must hand in:
 - `Measure.java` with the implementations above
 - A PDF file called `Matching.pdf` that contains:
   - A listing that matches each of mysteryA-F to an implementation f1-6 above 
-  - Two graphs that justify a few choices above. These don't need to
+  - Three graphs that justify a few choices above. These don't need to
     exhaustively describe all of your matchings, but they must be generated
     from real data that you measured using `measure`, and they must show an
     interesting relationship that helps justify the matching.
 
     FILL a good picture here
 
+## Submission Instructions
+
+There are four artifacts to submit for this PA:
+
+- The review quiz linked above
+- The `pa4` assignment in Gradescope, where you will submit your code as usual
+  from Github.
+- The `pa4-final-code` assignment in Gradescope, where you will submit your
+  final code for performing measurements, along with a README describing how
+  you measured things.
+- The `pa4-written` assignment in Gradescope, where you will submit a _single_
+  PDF file called `pa4.pdf`. You will _not_ submit a README for the final
+  submission, or any code, just this PDF file.
+  - The _first_ page should have your big-O justifications, which should take
+    up one page (you don't have to write a page of text! But don't put any
+    other answers on the first page)
+  - The _second_ and _third_ pages should have your List analysis, which should
+    take up pages 2 and 3 (you don't have to write two pages of text! But don't
+    put any other answers on the second or third pages)
+  - The _rest_ of the pages should have your matchings for the mystery
+    functions, along with your graphs and justifications
 
 ## Grade Breakdown
 
@@ -216,7 +340,11 @@ You must hand in:
   - 3% writeup quiz
   - 4% `measurementsToCSV`
   - 8% `measure`
-- 24% big-O descriptions of f1-6
-- 6% correct matching
-- 10% two relevant graphs
-- ... FILL ...
+- 20% big-O justifications
+- 20% list big-O analysis
+- 5% final code and README – we will just check that you did _something_
+  resonable here, to help show where the data for the matching came from
+- 40% matching activity
+  - 24% big-O descriptions of f1-6
+  - 6% correct matching
+  - 10% three relevant graphs
