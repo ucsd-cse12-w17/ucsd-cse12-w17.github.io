@@ -33,7 +33,7 @@ the assignment you will need to hand in.
 
 ## Big-O Justification
 
-Justify your answers for questions 1, 3, 7, and 9 in the PA review quiz.
+Justify your answers for questions 1, 3, 7, and 9 in the [PA review quiz.](https://docs.google.com/forms/d/e/1FAIpQLSeV9_uv4Aw7wAOzwQMD84SCVxRdRyMfCkZT91731NZeP7Oocg/viewform)
 
 If you are justifying the positive direction, give choices of `n0` and `C`. For
 big-Θ, make sure to justify both big-O and big-Ω.
