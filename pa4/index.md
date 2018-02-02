@@ -326,6 +326,7 @@ By Monday, 11:59pm
 - The review quiz linked above
 - The `pa4` assignment in Gradescope, where you will submit your code as usual
   from Github.
+
 By Wednesday, 11:59pm
 - The `pa4-final-code` assignment in Gradescope, where you will submit your
   final code for performing measurements, along with a README describing how
