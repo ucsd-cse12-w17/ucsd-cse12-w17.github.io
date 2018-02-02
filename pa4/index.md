@@ -305,7 +305,7 @@ You will hand in:
 - Your code with the implementations above, by Monday 11:59pm, by the usual
   Gradescope handin, in the assignment `pa4`.
 - All of your code, in the assignment `pa4-final-code`, by the usual gradescope
-  handin
+  handin by Wednesday 11:59pm.
 - On the _fourth page and beyond_ in your `pa4.pdf`:
   - The BigO bounds for each implementation f1-6.
   - A listing that matches each of mysteryA-F to an implementation f1-6 above 
@@ -322,9 +322,11 @@ If you want a guide on how to get from the CSV data to a graph, look here:
 
 There are four artifacts to submit for this PA:
 
+By Monday, 11:59pm
 - The review quiz linked above
 - The `pa4` assignment in Gradescope, where you will submit your code as usual
   from Github.
+By Wednesday, 11:59pm
 - The `pa4-final-code` assignment in Gradescope, where you will submit your
   final code for performing measurements, along with a README describing how
   you measured things. This README should just contain a few sentences
