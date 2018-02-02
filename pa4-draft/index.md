@@ -295,8 +295,8 @@ There are a few high-level strategies to consider:
   relative numbers are when inspecting the output.
 
 You will use these measurements to figure out which mystery method matches the
-implementations above, and generate two graphs to justify your answers. See
-below for more explanation.
+implementations above, and generate three graphs to justify your answers.
+
 
 ### Creating Graphs from the data
 
@@ -304,17 +304,22 @@ A short guide on how to create line charts can be found [here](https://docs.goog
 
 ### Deliverables for Measurements
 
-You must hand in:
+You will hand in:
 
-- `Measure.java` with the implementations above
-- A PDF file called `Matching.pdf` that contains:
+- Your code with the implementations above, by Monday 11:59pm, by the usual
+  Gradescope handin, in the assignment `pa4`.
+- All of your code, in the assignment `pa4-final-code`, by the usual gradescope
+  handin
+- On the _fourth page and beyond_ in your `pa4.pdf`:
   - A listing that matches each of mysteryA-F to an implementation f1-6 above 
   - Three graphs that justify a few choices above. These don't need to
     exhaustively describe all of your matchings, but they must be generated
     from real data that you measured using `measure`, and they must show an
     interesting relationship that helps justify the matching.
 
-    FILL a good picture here
+If you want a guide on how to get from the CSV data to a graph, look here:
+
+[https://docs.google.com/document/d/1vwckO76TrBT8B5E4xQ2-v2OXncLa6SQWuaQkNZaCPB0/edit](https://docs.google.com/document/d/1vwckO76TrBT8B5E4xQ2-v2OXncLa6SQWuaQkNZaCPB0/edit)
 
 ## Submission Instructions
 
@@ -325,10 +330,10 @@ There are four artifacts to submit for this PA:
   from Github.
 - The `pa4-final-code` assignment in Gradescope, where you will submit your
   final code for performing measurements, along with a README describing how
-  you measured things.
+  you measured things. This README should just contain a few sentences
+  describing how you ran your program to generate data.
 - The `pa4-written` assignment in Gradescope, where you will submit a _single_
-  PDF file called `pa4.pdf`. You will _not_ submit a README for the final
-  submission, or any code, just this PDF file.
+  PDF file called `pa4.pdf`.
   - The _first_ page should have your big-O justifications, which should take
     up one page (you don't have to write a page of text! But don't put any
     other answers on the first page)
