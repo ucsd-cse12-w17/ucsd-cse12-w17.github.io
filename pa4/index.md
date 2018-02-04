@@ -139,7 +139,7 @@ following methods:
 	public static void f4(int n) {
 		int a = 0;
 		for(int i = 0; i < n; i += 1) {
-			for(int j = i; i < n; j += 1) {
+			for(int j = i; j < n; j += 1) {
 				a = i + j;
 			}
 		}
