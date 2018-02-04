@@ -38,6 +38,12 @@ Justify your answers for questions 1, 3, 7, and 9 in the [PA review quiz.](https
 If you are justifying the positive direction, give choices of `n0` and `C`. For
 big-Θ, make sure to justify both big-O and big-Ω.
 
+[These
+slides](https://github.com/ucsd-cse12-w17/ucsd-cse12-w17.github.io/blob/master/lectures/01-31-wed/running-time.pdf)
+give a definition of big-Θ and big-Ω, which were not covered in detail in
+class. The strategies we showed in class for big-O can also be used for big-Ω,
+and big-Θ simply combines the two.
+
 If you are justifying the negative direction, indicate which term(s) can't work
 because one is guaranteed to grow faster or slower than the other.
 
