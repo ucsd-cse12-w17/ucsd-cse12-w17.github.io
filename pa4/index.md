@@ -303,6 +303,25 @@ There are a few high-level strategies to consider:
 You will use these measurements to figure out which mystery method matches the
 implementations above, and generate three graphs to justify your answers.
  
+### Avoiding Obscuring Optimizations
+
+On many platforms and Java versions, simple methods like the above get
+_optimized_ to run much faster than their theoretical number of steps might
+suggest. Java is pretty smart – it can, while running, figure out how to make
+them run quickly enough that empirical measurements become hard to make. If
+you're seeing that even on values of n in the hundreds of thousands, you get
+effectively constant behavior, you should try _disabling_ these optimizations
+to get more useful measurements for distinguishing the implementations.
+
+Instructions for doing this are in the _Turning Off Java Optimizations_ section
+of this Google Doc (scroll to the end):
+
+[https://docs.google.com/document/d/1vwckO76TrBT8B5E4xQ2-v2OXncLa6SQWuaQkNZaCPB0/edit](https://docs.google.com/document/d/1vwckO76TrBT8B5E4xQ2-v2OXncLa6SQWuaQkNZaCPB0/edit)
+
+Note that this will make all the mystery methods run _a lot_ slower, so you may
+want to _decrease_ the values of n you use after making this change to avoid
+waiting a long time.
+
 
 ### Deliverables for Measurements
 
