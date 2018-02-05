@@ -1,21 +1,21 @@
 # ucsd-cse12-w17.github.io
 Course web site
 ## Lecture notes links:
-https://ucsd-cse12-w17.github.io/lectures/02-02-fri/notes-c.html
-
 https://ucsd-cse12-w17.github.io/lectures/02-02-fri/notes-b.html
 
-https://ucsd-cse12-w17.github.io/lectures/01-08-mon/notes.html
+https://ucsd-cse12-w17.github.io/lectures/02-02-fri/notes-c.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-08-mon/notes-b.html
+
+https://ucsd-cse12-w17.github.io/lectures/01-08-mon/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-22-mon-c/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-22-mon-b/notes.html
 
-https://ucsd-cse12-w17.github.io/lectures/01-17-wed-b/notes-c.html
-
 https://ucsd-cse12-w17.github.io/lectures/01-17-wed-b/notes-b.html
+
+https://ucsd-cse12-w17.github.io/lectures/01-17-wed-b/notes-c.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-17-wed-c/notes-c.html
 
@@ -33,7 +33,13 @@ https://ucsd-cse12-w17.github.io/lectures/01-24-wed-c/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-19-fri-b/notes.html
 
-https://ucsd-cse12-w17.github.io/lectures/01-10-wed/notesb.html
+https://ucsd-cse12-w17.github.io/lectures/02-05-mon-b/notes.html
+
+https://ucsd-cse12-w17.github.io/lectures/02-05-mon-c/notes.html
+
+https://ucsd-cse12-w17.github.io/lectures/02-05-mon-c/notes2.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-10-wed/01-10-wed.html
+
+https://ucsd-cse12-w17.github.io/lectures/01-10-wed/notesb.html
 

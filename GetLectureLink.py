@@ -22,7 +22,7 @@ for lecture in lectures:
   
   files = glob.glob('./*')
 
-  for f in files:
+  for f in sorted(files):
     name=f.split('.')
     if name[-1] == 'html':
       url = url_protocol+path+current+f[1:]
