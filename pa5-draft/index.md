@@ -17,12 +17,11 @@ all-knowing, oracular tester for sorting implementations.*
 
 ## Deadlines
 
-You will submit a PA quiz and meet an implementation milestone by Monday at
-11:59pm, and submit the rest of the assignment by Wednesday at 11:59pm.
+You will submit a PA quiz and meet an implementation milestone by Monday, Feb
+12 at 11:59pm, and submit the rest of the assignment by Wednesday, Feb 14 at
+11:59pm.
 
-
-
-## Part I: A Bad Implementation Detector
+## Part I: A Bad (and Good) Implementation Detector
 
 ### Testing with Properties
 
