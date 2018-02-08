@@ -303,6 +303,21 @@ code on the Web. So do intellectual property attorneys, to extend the analogy
 to the professional context.**
 
 
+## File Summary
+
+- `Sortacle.java`:
+  - `isGoodSorter` (you implement this)
+  - `generateInput` (you implement this)
+  - `isSortedVersionOf` (you implement this)
+- `TestSortacle.java`: You will write your tests of the methods above here
+- `Item.java` (do not edit this)
+- `Counterexample.java` (do not edit this)
+- `PriceSorter.java` (do not edit this): Defines the `sortByPrice` method
+  implemented by all sorters. You will implement this interface several times
+  to test `isGoodSorter`.
+- `WebSorter1-3.java`: For your implementations found on the Web that will
+  implement `PriceSorter`.
+
 ## Submission
 
 You will only hand in your repository (the header comments for the
