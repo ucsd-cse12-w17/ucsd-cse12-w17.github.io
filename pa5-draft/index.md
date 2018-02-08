@@ -324,8 +324,8 @@ You will only hand in your repository (the header comments for the
 implementations you find on the Web serve as your README).
 
 Grading breakdown:
-- 10%: For `isGoodSorter` catching at least one chaff and passing on at least
-  one wheat by Monday midnight
+- 10%: For `isGoodSorter` catching at least one bad sort and passing on at
+  least one good sort by Monday midnight
 - 50%: `isGoodSorter`, graded by how it performs on wheat and chaff sorting
   algorithms
 - 10%: Test and code readability and style
