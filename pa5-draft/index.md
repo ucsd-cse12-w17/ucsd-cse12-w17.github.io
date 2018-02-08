@@ -45,7 +45,8 @@ class Item {
 }
 ```
 
-Consider a list containing these `Item`s:
+Consider a list containing these `Item`s (the second argument represents
+`priceInCents`, the third `weightInGrams`):
 
 ```
 new Item("iClicker", 3500, 250);
