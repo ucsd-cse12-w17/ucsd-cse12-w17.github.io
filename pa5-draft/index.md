@@ -7,12 +7,22 @@ doodle: "/doodle.png"
 <h1>{{ page.title }}</h1>
 
 This assignment will teach you how to write tests in a thorough, automated way,
-and will explore some properties of sorting implementations.
+will explore some properties of sorting implementations, and will give you
+structured practice in re-using code you find code on the Web.
 
 *This assignment is inspired by [an assignment from Brown University's
 CS019](https://cs.brown.edu/courses/cs019/2016/sortaclesortacle.html).*
 
-## Testing with Properties
+## Deadlines
+
+You will submit a PA quiz and meet an implementation milestone by Monday at
+11:59pm, and submit the rest of the assignment by Wednesday at 11:59pm.
+
+
+
+## Part I: A Bad Implementation Detector
+
+### Testing with Properties
 
 So far in this class, we have usually written tests by following this process:
 
@@ -101,7 +111,8 @@ public interface PriceSorter {
 }
 ```
 
-## Your Testing Task
+### Your Task
+
 
 We can ask, for any implementation of this interface, if it behaves as we'd
 expect. We might express this with a method that takes a `PriceSorter` and
@@ -145,7 +156,7 @@ algorithms algorithms. It's up to you how it generates the items; it should
 produce a list of length `n`, however. As described above, consider having it
 make items with duplicate names or weights.
 
-## An Overall Strategy
+### An Overall Strategy
 
 Here's one way you might approach this problem:
 
@@ -162,20 +173,21 @@ Here's one way you might approach this problem:
   all to the underlying list in its `sortByPrice` method. Implement a _good_
   version of `PriceSorter` as well, by using one of the definitions of sorting
   we have from class, adapted to work as a `PriceSorter`.
-- Try putting together the first version of `isGoodSorter`, that creates a
-  single list using `generateInput`, sorts it with the given sorter, and checks
-  if it was sorted correctly using `isSortedVersionOf`, and returns `null` if
-  it sorted correctly, and a `Counterexample` if it didn't Note: you will need
-  to _save_ the original list, since sorters can and will make changes to them!
+- Try putting together a first version of `isGoodSorter`. It could create a
+  single list using `generateInput`, sort it with the given sorter, check if it
+  was sorted correctly using `isSortedVersionOf`, and return `null` if it
+  sorted correctly or a `Counterexample` if it didn't. Note: you will need to
+  _save_ the original list, since sorters can and will make changes to them!
   You can use the `ArrayList` constructor that consumes another `Collection` as
-  an argument to make a copy of a list. Now you can test that it returns `null`
-  when passed the good sorter, and a `Counterexample` when given the bad
-  sorter. The testing methods `assertNull` and `assertNotNull` can be helpful
-  here.
+  an argument to make a copy of a list. With this flow, you can test that
+  `isGoodSorter` returns `null` when passed the good sorter, and a
+  `Counterexample` when given the bad sorter. The testing methods `assertNull`
+  and `assertNotNull` can be helpful here.
 
-You can write these tests in `TestSortTester.java`. This will get you through
-the beginning of the problem, and familiar with all the major interfaces. With
-this in hand, you can proceed with more refined tests. Here are some ideas:
+You can write these tests in `TestSortTester.java` (yes, the tester has its own
+tests!). This will get you through the beginning of the problem, and familiar
+with all the major interfaces. With this in hand, you can proceed with more
+refined tests. Here are some ideas:
 
 - Make a copy of the good `PriceSorter` you wrote, and change it in a subtle
   way, maybe change a < to a <= in comparison. Is it still a good sort? Can
@@ -193,30 +205,48 @@ this in hand, you can proceed with more refined tests. Here are some ideas:
   `isSortedVersionOf`).
 - Use the sorters that you find on the Web (below) and check if they are good
   or bad.
+- The `java.util.Random` class has useful tools for generating random numbers.
+  You can create a random number generator and use it to get random integers from
+  0 to a bound:
 
-### Creating Random Values
+  ```
+      Random r = new Random();
+      r.nextInt(10);  // Generates a random number from 0 to 9
+  ```
 
-The `java.util.Random` class has useful tools for generating random numbers.
-You can create a random number generator and use it to get random integers from
-0 to a bound:
+  Random integers are useful for filling in values of `priceInCents` and
+  `weightInGrams`, but especially price, to generate lists with values in
+  interesting different orders. With random numbers:
 
-```
-    Random r = new Random();
-    r.nextInt(10);  // Generates a random number from 0 to 9
-```
+  - You could create a list of default names to use, and use a random number to
+    select which one will be used for a particular `Item`.
+  - You could generate random _strings_: create numbers in the range of ASCII
+    values, cast them to bytes, and concatenate them together
 
-Random integers are useful for filling in values of `priceInCents` and
-`weightInGrams`, but especially price, to generate lists with values in
-interesting different orders.
+Overall, your goal is to make it so `isGoodSorter` will return `null` for any
+reasonable good sorting implementation, and find a `Counterexample` for any bad
+sorting implemenation with extremely high probability. We will provide you with
+a bunch of them to test against while the assignment is out, and we may test on
+more than we provide you in the initial autograder.
 
-Here are some other ideas:
+We won't test on truly crazy situations, like a sorter that only fails when
+passed lists of 322 elements, or when an Item's name is `"Henry"`. The bad
+implementations will involve things logically related to sorting and
+manipulating lists, like boundary cases, duplicates, ordering, length, base
+cases, and comparisons, as a few examples.
 
-- You could create a list of default names to use, and use a random number to
-  select which one will be used for a particular `Item`.
-- You could generate random _strings_: create numbers in the range of ASCII
-  values, cast them to bytes, and concatenate them together
+**Assume** that there are no `null` items in the lists, that sorts won't put
+`null` items in the lists, and that the variables holding lists of items won't
+contain `null`. Basically, don't think too hard about `null` cases for list
+contents – there are plenty of interesting behavior to consider without it!
 
-## Code of all Sorts
+**Don't** have your implementation of `isGoodSorter` take more than a few
+seconds per sorting implementation. You don't need to create million element
+lists to find the issues, and it will just slow down grading. You should focus
+on generating (many, maybe hundreds or thousands of) small interesting lists
+rather than a few big ones, which should process very quickly.
+
+## Part II: Code of all Sorts
 
 There's a lot of code out there in the world. Much of it is available, with
 permissive licensing, for free on the Web. When you're learning, it's often
@@ -232,7 +262,8 @@ When you re-use or repurpose code, there are two main concerns:
   code depending on its software license. There are also simple intellectual
   honesty issues around giving credit to the right sources. If you can't answer
   these questions up front, it may be the case that you shouldn't even be
-  _looking_ at other code that solves your problem until you have answers.
+  _looking_ at other code that solves your problem until you have answers. This
+  is usually the case in programming courses, for example.
 - More practically, does the code actually do what you want? If it's a method,
   are the inputs and outputs the types your program will expect? Does it match
   your performance expectations in terms of its runtime? If you need to change
@@ -253,36 +284,33 @@ implementation you find, you write in a header comment with the method:
   and open source Java implementation, for example. Don't use code for which
   you can't find the rules of re-use!
 - Describe what changes you made to adapt it to this problem
-- Indicate if it was buggy or not (by using your tester) and why
-- Describe the worst case of its runtime behavior
-
-Two of the three implementations should have different worst case big-Θ bounds;
-for example, you shouldn't find three implementations of selection sort since
-they will all be big-Θ(n<sup>2</sup>). Find an interesting mix. You're welcome
-to find sorting algorithms that we didn't cover in class or the textbook.
+- Indicate if it was buggy or not (by using handwritten tests, or potentially
+  by using your tester, if you have it ready) and why
+- Describe the worst case of its runtime behavior using a tight big-O bound
 
 Put these implementations in the provided files `WebSorter1-3.java`.
 
-**NOTE: This part of the assignment is a deliberate, narrow exception to the
-Academic Integrity policy for the course. You shouldn't, in any other
+**NOTE: This part of the assignment represents a deliberate, narrow exception
+to the Academic Integrity policy for the course. You shouldn't, in any other
 assignment (or other parts of this assignment) go hunting for code on the Web
 that solves the assignment for you.  You certainly shouldn't do it in other
 classes or at your job – you should always know and consult the policies
 relevant to your current context. We (the instructors) know how to search for
-code on the Web, too, and it's not that hard to check the top few Google
-results.**
+code on the Web. So do intellectual property attorneys, to extend the analogy
+to the professional context.**
 
-## Do's, Don'ts, and Assumptions
 
-**Assume** that there are no `null` items in the lists, that sorts won't put
-`null` items in the lists, and that the variables holding lists of items won't
-contain `null`. Basically, don't think too hard about `null` cases for list
-contents – there are plenty of interesting behavior to consider without it!
+## Submission
 
-**Don't** have your implementation of `isGoodSorter` take more than about 10
-seconds per sorting implementation. You don't need to create million element
-lists to find the issues, and it will just slow down grading. You should focus
-on generating (many, maybe hundreds or thousands of) small interesting lists
-rather than a few big ones.
+You will only hand in your repository (the header comments for the
+implementations you find on the Web serve as your README).
+
+Grading breakdown:
+- 10%: For `isGoodSorter` catching at least one chaff and passing on at least
+  one wheat by Monday midnight
+- 50%: `isGoodSorter`, graded by how it performs on wheat and chaff sorting
+  algorithms
+- 10%: Test and code readability and style
+- 30%: (10% each) for the sort implementations you find online and describe
 
 
