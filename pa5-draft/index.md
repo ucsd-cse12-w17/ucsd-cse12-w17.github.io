@@ -8,7 +8,7 @@ doodle: "/doodle.png"
 
 This assignment will teach you how to write tests in a thorough, automated way,
 will explore some properties of sorting implementations, and will give you
-structured practice in re-using code you find code on the Web.
+structured practice in re-using code you find on the Web.
 
 *This assignment is inspired by [an assignment from Brown University's
 CS019](https://cs.brown.edu/courses/cs019/2016/sortaclesortacle.html).*
