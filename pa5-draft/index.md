@@ -262,15 +262,14 @@ When you re-use or repurpose code, there are two main concerns:
 - Are you allowed, legally and ethically? Your course, company, or institution
   may have its own rules, and there are laws about how you can re-use or modify
   code depending on its software license. There are also simple intellectual
-  honesty issues around giving credit to the right sources. If you can't answer
-  these questions up front, it may be the case that you shouldn't even be
-  _looking_ at other code that solves your problem until you have answers. This
-  is usually the case in programming courses, for example.
+  honesty issues around giving credit to the right sources. It may be the case
+  that you shouldn't even be _looking_ at other code that solves your problem.
+  This is usually the case in programming courses, for example.
 - More practically, does the code actually do what you want? If it's a method,
   are the inputs and outputs the types your program will expect? Does it match
   your performance expectations in terms of its runtime? If you need to change
-  it to adapt to your application, what effects will that have on the original
-  version?
+  it to adapt to your application, will that invalidate any assumptions of the
+  original version?
 
 For this assignment, you must go _find three sorting implementations in Java on
 the Web_. You should document the source you got it from clearly, and adapt it
@@ -292,14 +291,19 @@ implementation you find, you write in a header comment with the method:
 
 Put these implementations in the provided files `WebSorter1-3.java`.
 
+A search engine is your friend here. Searching “Java sort implementation” is a
+fine way to start. Searching “java sort implementation site:github.com” gives a
+bunch of promising options, as well. Have fun searching, there's lots of cool
+stuff out there!
+
 **NOTE: This part of the assignment comes with a deliberate, narrow exception
 to the Academic Integrity policy for the course. You shouldn't, in any other
 assignment (or other parts of this assignment) go hunting for code on the Web
 that solves the assignment for you.  You certainly shouldn't do it in other
-classes or at your job – you should always know and consult the policies
-relevant to your current context. We (the instructors) know how to search for
-code on the Web. So do intellectual property attorneys, to extend the analogy
-to the professional context.**
+classes or at your job unless you know it's acceptable to do so – you should
+always know and consult the policies relevant to your current context. We (the
+instructors) know how to search for code on the Web. So do intellectual
+property attorneys, to extend the analogy to the professional context.**
 
 
 ## File Summary
@@ -311,9 +315,9 @@ to the professional context.**
 - `TestSortacle.java`: You will write your tests of the methods above here
 - `Item.java` (do not edit this)
 - `Counterexample.java` (do not edit this)
-- `PriceSorter.java` (do not edit this): Defines the `sortByPrice` method
-  implemented by all sorters. You will implement this interface several times
-  to test `isGoodSorter`.
+- `PriceSorter.java` (do not edit this): Defines the signature of the
+  `sortByPrice` method implemented by all sorters. You will implement this
+  interface several times to test `isGoodSorter`.
 - `WebSorter1-3.java`: For your implementations found on the Web that will
   implement `PriceSorter`.
 
