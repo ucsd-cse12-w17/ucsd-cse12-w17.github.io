@@ -290,7 +290,7 @@ implementation you find, you write in a header comment with the method:
 
 Put these implementations in the provided files `WebSorter1-3.java`.
 
-**NOTE: This part of the assignment represents a deliberate, narrow exception
+**NOTE: This part of the assignment comes with a deliberate, narrow exception
 to the Academic Integrity policy for the course. You shouldn't, in any other
 assignment (or other parts of this assignment) go hunting for code on the Web
 that solves the assignment for you.  You certainly shouldn't do it in other
