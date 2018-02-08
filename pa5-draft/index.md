@@ -11,7 +11,9 @@ will explore some properties of sorting implementations, and will give you
 structured practice in re-using code you find on the Web.
 
 *This assignment is inspired by [an assignment from Brown University's
-CS019](https://cs.brown.edu/courses/cs019/2016/sortaclesortacle.html).*
+CS019](https://cs.brown.edu/courses/cs019/2016/sortaclesortacle.html).
+“Sortacle” is a portmanteau of “sort” and “oracle” – you will implement an
+all-knowing, oracular tester for sorting implementations.*
 
 ## Deadlines
 
@@ -185,7 +187,7 @@ Here's one way you might approach this problem:
   `Counterexample` when given the bad sorter. The testing methods `assertNull`
   and `assertNotNull` can be helpful here.
 
-You can write these tests in `TestSortTester.java` (yes, the tester has its own
+You can write these tests in `TestSortacle.java` (yes, the tester has its own
 tests!). This will get you through the beginning of the problem, and familiar
 with all the major interfaces. With this in hand, you can proceed with more
 refined tests. Here are some ideas:
