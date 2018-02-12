@@ -23,6 +23,8 @@ https://ucsd-cse12-w17.github.io/lectures/02-07-wed-b/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/02-07-wed-c/notes.html
 
+https://ucsd-cse12-w17.github.io/lectures/02-09-fri-c/ntoes.html
+
 https://ucsd-cse12-w17.github.io/lectures/01-24-wed-b/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/01-29-mon-c/notes.html
