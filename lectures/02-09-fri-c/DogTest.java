@@ -71,35 +71,52 @@ public class DogTest {
 		momL.add(d);
 		return momL;
 	}
-	
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	/*
-	 * 	Dog ada = new Dog("tan", 33, new Dog("brown", 40, null, null), null);
-	Dog rex = new Dog("black", 60,
-			new Dog("black", 55,
-					new Dog("black", 58, null, null),
-					new Dog("black", 70, null, null)),
-			new Dog("black", 65,
-					new Dog("black", 62, null, null),
-					new Dog("white", 12, null, null)));
+  /*
 
-	 */
+  The template we talked about is:
+
+  public static ___ReturnType___ dogMethod(Dog d, ...) {
+    if(d == null) { what happens in the null/empty case? }
+    // Most things that need to process all the dogs in the tree will use:
+    ... dogMethod(d.mom, ...) ...
+    ... dogMethod(d.dad, ...) ...
+
+    // You might also use d.weightInLbs, d.furColor, and combine those
+    // with the results above
+
+    // This is a simple recipe for building a recursive method over binary
+    // tree-shaped data
+  }
+
+  If you want some more practice, try writing the following:
+
+  Write a method totalWeight that consumes a dog and produces the total
+  weight in the dog's family
+
+  Write a method countDogs that consumes a dog and produces the total number
+  of dogs in the family
+
+  Write a method countBigDogs that consumes a dog and a threshold weight,
+  and returns a count of all dogs with weight over that weight in the family
+
+  Write a method furColors that consumes a dog and produces a Set of all the
+  furColors in the dog's family (look up the docs for Set)
+
+  NOTE: not _all_ methods work with the scheme we suggested!  Sometimes you
+  need to use a helper method or two. The examples below are instances of this:
+
+  Write a method meanWeight that consumes a dog and produces the average weight
+  in the family.
+
+  Write a method hasDifferentColoredAncestor that consumes a dog and returns
+  true if some _ancestor_ of that dog has the same fur color, and false if not
+
+  */
 	
 	
 	
-	
-	// Rex's pic from http://www.malmstrom.af.mil/News/Features/Display/Article/825572/ruff-job-malmstrom-k-9s-follow-their-nose/
+	// Rex's pic is from http://www.malmstrom.af.mil/News/Features/Display/Article/825572/ruff-job-malmstrom-k-9s-follow-their-nose/
 	// His grandfather's picture is from https://commons.wikimedia.org/wiki/File:Frensh_Poodle_Enano.jpg
 }
 
