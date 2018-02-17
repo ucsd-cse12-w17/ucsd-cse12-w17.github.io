@@ -1,0 +1,61 @@
+There are two methods that you are required to implement and will be
+autograded, along with implementing a `main` that provides the functionality
+above. The entirety of Part II will be posted by the end of Tuesday, Feb 20th,
+but the instructions below can get you started thinking.
+
+The two required methods are:
+
+```
+public static DefaultMap<Integer, DefaultMap<String, Integer>> generateDatabase(Path p)
+```
+
+`generateDatabase` consumes a
+[`Path`](https://docs.oracle.com/javase/7/docs/api/java/nio/file/Path.html)
+and produces a mapping from _years_ to maps from _n-grams_ to _counts_. This
+makes it so for each year, we can easily look up the count of an n-gram in
+that year.
+
+```
+public static Graph makeGraph(DefaultMap<Integer, DefaultMap<String, Integer>> db, String[] query) {
+```
+
+We provide you with an implementation of `Graph`, which uses an open-source API
+to draw data that you give it. `makeGraph` takes in the database of n-grams
+built by `generateDatabase`, along with a list of n-grams to query. It then
+produces a `Graph` object, which can be drawn to the screen using the
+`showChart()` method.
+
+
+
+
+
+
+### Going from text files to tree
+
+
+`generateDatabase` consumes a
+[`Path`](https://docs.oracle.com/javase/7/docs/api/java/nio/file/Path.html)
+and produces a mapping from _years_ to maps from _n-grams_ to _counts_. This
+makes it so for each year, we can easily look up the count of an n-gram in
+that year.
+
+There are several steps you might take here, though the design is entirely up
+to you. We outline several useful APIs for you to look up, and some useful
+strategies to follow.
+
+- You will need to be able to get a list of files contained in a directory
+given by a `Path`. The method `Files.newDirectoryStream` can give back an
+iterator over Paths, like so:
+
+		DirectoryStream<Path> d = Files.newDirectoryStream(path, "*.{txt}");
+		for(Path p: d) {
+			System.out.println("This is one of the paths in this directory: " + p);
+		}
+
+- You will need to be able to get the contents of a file from its path. The
+method `Files.readAllLines` is helpful here; it takes an input file and
+returns it as a `List` of strings.
+
+- You will need to decide on how to filter out punctuation and characters
+like `@` from the data in the files.
+
