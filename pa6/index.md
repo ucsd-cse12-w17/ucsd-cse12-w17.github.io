@@ -16,7 +16,7 @@ Github Classroom Link: https://classroom.github.com/a/0I18cWQ9
 
 - **Friday, Feb 23, 11:59pm**
   - Your implementation of `BSTDefaultMap.java`
-  - A writeup quiz
+  - [A writeup quiz](https://docs.google.com/forms/d/e/1FAIpQLSfpURlOhuLQX5iYDdechwsq6qAYlrL4BNtFjRZ0Mc0hBuG01g/viewform)
 - **Wednesday, Feb 28, 11:59pm**
 	- Your implementation of `Loader.java`, and some associated README
 		questions
