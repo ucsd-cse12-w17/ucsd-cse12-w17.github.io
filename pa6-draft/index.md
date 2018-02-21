@@ -178,7 +178,7 @@ constructed with the right input data to work. You will write `makeGraph` to
 take a database of the shape constructed by `generateDatabase` along with a
 query as an array of n-grams, and produce the corresponding `Graph`.
 
-A query is an _array_ of n-grams to summarize, so, for example, to query for
+A query is an _array_ of n-grams to plot, so, for example, to query for
 the n-grams "is a" and "has a", the array argument would be:
 
 ```
