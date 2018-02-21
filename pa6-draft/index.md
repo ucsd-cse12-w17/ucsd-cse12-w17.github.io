@@ -134,6 +134,10 @@ public static Graph makeGraph(
   String[] query)
 ```
 
+**NOTE: makeGraph here is the one you should implement, and it takes the `db`
+argument which is not in the starter code. Please update your implemenation to
+this version.**
+
 #### generateDatabase
 
 The idea here is that `generateDatabase` produces a useful structure that can
@@ -269,11 +273,13 @@ paragraph markers like `<p>`. In addition, some words are in uppercase and some
 are in lowercase. You should filter out this extraneous information to get the
 most useful sequence of n-grams you can.
 
-_This process will be graded subjectively_, and you should argue in your README
-about why your filtering rules were good, see the README section below. We will
-autograde your submission on pre-filtered data that doesn't have this
-extraneous information, so that your filtering rules won't affect that part of
-your grade.
+_This process not be graded automatically, but by reading your code and your
+argument for it._ You should argue in your README about why your filtering
+rules were good (see the README section below). Note that this requires
+exercising your judgment, which we cannot do for you, so “Is this filtering
+rule OK?” kinds of questions need to come with an argument. We will autograde
+your submission on pre-filtered data that doesn't have this extraneous
+information, so that your filtering rules won't affect that part of your grade.
 
 A reasonable approach to this is to break up each line on spaces to produce an
 array or list (using `String.split`), and then remove some of the
@@ -281,6 +287,7 @@ space-separated strings according to string matching rules you develop. Some
 things to think about:
 
 - Should an n-gram span across sentences?
+- Should an n-gram span across comma boundaries?
 - Should capitalization distinguish words or n-grams?
 - Should words with apostrophes be considered words or not?
 
