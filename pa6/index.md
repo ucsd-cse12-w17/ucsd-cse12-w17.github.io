@@ -122,15 +122,232 @@ this:
 That is, a user can type in multiple n-grams separated by semicolons, and your
 program will produce a graph that shows the relationship.
 
-**Get started on Part I now! This is as a two-part assignment, with full
-instructions for Part II ready very soon. Do read the starter code for
-Loader.java, have a look at the data, and start thinking about what will go
-into building the interface above!**
+### Required Methods
+
+You _must_ implement the two following methods:
+
+```
+public static DefaultMap<Integer, DefaultMap<String, Integer>> generateDatabase(Path p)
+
+public static Graph makeGraph(
+  DefaultMap<Integer, DefaultMap<String, Integer>> db,
+  String[] query)
+```
+
+**NOTE: makeGraph here is the one you should implement, and it takes the `db`
+argument which is not in the starter code. Please update your implemenation to
+this version.**
+
+#### generateDatabase
+
+The idea here is that `generateDatabase` produces a useful structure that can
+be efficiently _queried_ later to produce a graph.
+
+`generateDatabase` should map from _years_ to maps from _n-grams_ to _counts_.
+That is, the structure might represent something like:
+
+```
+1991 => { "is" => 30, "is a" => 10, "has a" => 20, ... }
+1992 => { "is" => 45, "is a" => 12, "has a" => 25, ... }
+1993 => { "is" => 60, "is a" => 13, "has a" => 28, ... }
+```
+
+So there will be one entry in the map for each _year_ of data, and one entry in
+each year's map for each n-gram that appeared at least once in that year's data.
+
+The `Path` that `generateDatabase` takes as an argument should be a path with a
+directory structure like `data`. The expectation is that the directory holds
+files of the shape described above (`w_<type>_<year>.txt`). The
+`generateDatabase` method should read all the files in this directory (see
+“Reading Files” below), split them up on word boundaries, filter out non-word
+strings (see “Filtering Strings” below), and build a map as described above.
+
+You should add all 1- through 3-grams in the documents to the map (ignore grams
+of 4 and above). Note that there are multiple files from each year, for example
+both `w_acad_1990.txt` and `w_fic_1990.txt` represent text from the year 1990.
+You should make sure to include n-grams from all the files corresponding to a
+given year in the map for that year.
+
+We will test your `generateDatabase` with other directories than the given data
+directory, and you may find it useful to do so as well. The test data we use
+will have the expected layout above.
+
+#### makeGraph
+
+Once you've built the database, you can use it to ask interesting questions,
+like how many times a several particular n-grams appeared in each year from
+1990 to 2012 in the dataset. We've provided you with a class `Graph` that uses
+an open-source chart library to draw the graphical elements, but it needs to be
+constructed with the right input data to work. You will write `makeGraph` to
+take a database of the shape constructed by `generateDatabase` along with a
+query as an array of n-grams, and produce the corresponding `Graph`.
+
+A query is an _array_ of n-grams to plot, so, for example, to query for
+the n-grams "is a" and "has a", the array argument would be:
+
+```
+new String[]{"is a", "has a"}
+```
+
+The individual n-grams themselves are represented simply as space-separated
+words.
+
+The goal of `makeGraph` is to construct a `Graph`, whose constructor has the
+following signature:
+
+```
+public Graph(String title, List<Integer> years, DefaultMap<String, List<Integer>> data)
+```
+
+- The `title` parameter is simply the name that appears at the top.
+- The `years` parameter is a `List` containing all the years to be plotted
+- The `data` parameter is a map from n-grams to lists of _counts_ of the
+  n-grams, with one element in the list for each year in `years`. For example,
+  if the `years` were 1991, 1992, and 1993, the map might represent:
+
+      "is a" => [34, 67, 92]
+      "has a" => [44, 55, 33]
+  
+  where there were `34` instances of `"is a"` in 1991, `55` of `"has a"` in
+  1992, and so on.
+
+The `Graph` constructor can then plot the information (see “Plotting” below).
+Note that for the automatically graded part of the assignment, we will simply
+check that you created the correct `Graph` object.
+
+### Reading Files
+
+You're free to read in the files in any way you like. We found the following
+methods particularly useful:
+
+- [`FileSystems.getDefault().getPath()`](https://docs.oracle.com/javase/7/docs/api/java/nio/file/FileSystem.html#getPath(java.lang.String,%20java.lang.String...))
+  for getting a `Path` object from a string. Providing the path to the
+  directory containing the test data may be useful, for example.
+- [`Files.newDirectoryStream()`](https://docs.oracle.com/javase/7/docs/api/java/nio/file/Files.html#newDirectoryStream(java.nio.file.Path)),
+  which returns an iterator over the paths in a directory
+- [`Files.readAllLines()`](https://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html#readAllLines-java.nio.file.Path-),
+  which gives back a `List<String>` containing all the lines in a file represented by a given path.
+
+We didn't need any more than these for the reference implementation. Here's an
+example of a class that you could add to your implementation that shows an
+example of using these APIs. There's a few things worth noting:
+
+- We added `throws IOException` to `main` here. This tells Java that if a file
+  or directory isn't found, `main` might just quit with an exception
+- The `if` within the loop is just to demonstrate what the paths look like, and
+  to show what printing out/reading a single file looks like. There's nothing
+  special about that individual file.
+- You can use `toString` on a path to get a `String` representation of it. This
+  can be useful for finding out which year a file refers to, since the year
+  will always appear just before the `.txt`
+
+```
+package cse12pa6student;
+
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Arrays;
+
+public class ReadSomeFiles {
+	public static void main(String[] args) throws IOException {
+		Path path = FileSystems.getDefault().getPath("./data");
+		DirectoryStream<Path> d = Files.newDirectoryStream(path, "*.{txt}");
+		for(Path p: d) {
+			System.out.println("The path is: " + p);
+			if(p.toString().equals("./data/w_acad_1992.txt")) {
+				System.out.println(Files.readAllLines(p));
+			}
+		}
+	}
+}
+```
+
+### Filtering Strings
+
+The data within each file has extraneous information in it. For example, there
+are sequences of `@` signs separating passages, punctuation like `.`, and
+paragraph markers like `<p>`. In addition, some words are in uppercase and some
+are in lowercase. You should filter out this extraneous information to get the
+most useful sequence of n-grams you can.
+
+_This process not be graded automatically, but by reading your code and your
+argument for it._ You should argue in your README about why your filtering
+rules were good (see the README section below). Note that this requires
+exercising your judgment, which we cannot do for you, so “Is this filtering
+rule OK?” kinds of questions need to come with an argument. We will autograde
+your submission on pre-filtered data that doesn't have this extraneous
+information, so that your filtering rules won't affect that part of your grade.
+
+A reasonable approach to this is to break up each line on spaces to produce an
+array or list (using `String.split`), and then remove some of the
+space-separated strings according to string matching rules you develop. Some
+things to think about:
+
+- Should an n-gram span across sentences?
+- Should an n-gram span across comma boundaries?
+- Should capitalization distinguish words or n-grams?
+- Should words with apostrophes be considered words or not?
+
+## Main and Plotting
+
+You will also implement a `main` method that:
+
+- Loads the provided sample data
+- Runs a simple loop:
+  - taking user input as semicolon-separated lists of n-grams
+  - showing the user a plot of the results
+
+So, _before_ the loop you should use `generateDatabase` once to create the data
+to query, then you can start the loop, and use `makeGraph` to show the
+responses.
+
+Our loop looks something like:
+
+```
+database = generateDatabase(...);
+Scanner in = new Scanner(System.in);
+
+while(true) {
+  
+  System.out.print("Enter query: ");
+  String query = in.nextLine();
+
+  ... split query ...
+
+  Graph g = makeGraph(database, queryArray);
+  g.showChart();
+}
+```
+
+This allows you to interactively explore relationships – this is a pretty
+legitimate data exploration tool!
+
+## README
+
+You will write a README to answer the following questions:
+
+- Justify your filtering process. Write 3-5 sentences and give 2-3 examples of
+  important filtering rules you came up with to go from the space-separated
+  strings in a file to the n-grams your viewer shows.
+- Discuss the runtime of loading the dataset, answering the following
+  questions: How much real time (milliseconds) does it take to load all the
+  sample data (e.g.  `generateDatabase`)? What is its asymptotic complexity
+  (e.g. its big-O bound)? In particular, how do you measure the size of the
+  input?
+- Discuss the runtime of querying the dataset (e.g. creating a graph),
+  answering the following questions: How much real time (milliseconds) does it
+  take for some sample queries? How do the n-grams queried for affect the
+  runtime? What is the asymptotic complexity of performing a query (e.g. its
+  big-O bound)? In particular, how do you measure the size of the input?
 
 ## Grading
 
 - 25% initial submission of BST implementation
 - 3% writeup quiz
-- 45% implementation of Loader.java/main
+- 45% implementation of `generateDatabase`, `makeGraph`, and `main`
 - 20% README
 - 7% overall testing & style
+
