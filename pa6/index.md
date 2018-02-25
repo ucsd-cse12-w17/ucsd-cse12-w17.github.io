@@ -24,7 +24,7 @@ Github Classroom Link: https://classroom.github.com/a/0I18cWQ9
 Note that we will provide an implementation of `BSTDefaultMap.java` after the
 first deadline, so no late submissions will be accepted for that milestone.
 
-**Update:** You can find the reference implementaion for `BSTDefaultMap.java` [here](https://piazza.com/class_profile/get_resource/jbynulu2ufr3bw/je25w8eyak02jy).
+**Update:** You can find the reference implementaion for `BSTDefaultMap.java` [here](https://d1b10bmlvqabco.cloudfront.net/attach/jbynulu2ufr3bw/itdxg9q597837q/je3fmpiepg9t/cse12BSTDefaultMap.java).
 
 ## The `DefaultMap` Interface
 
