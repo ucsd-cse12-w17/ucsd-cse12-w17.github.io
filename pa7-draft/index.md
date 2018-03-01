@@ -14,7 +14,9 @@ and use it to make several performance measurements.
 As we saw in class, a hash table is a useful implementation of the same `Map`
 interface we used to motivate BSTs. To drive this point home, you will
 implement a hash table to the very same `DefaultMap` interface we used in
-PA6.
+PA6, with only a single change. The single change (mainly just to focus on
+the more interesting parts of the problem) is that `keys` and `values` do not
+have to return things in sorted order; any order is fine.
 
 You will implement a hash table using separate chaining and a
 configurable initial capacity, load factor, expansion factor, and hash
@@ -55,27 +57,45 @@ You may choose _any_ collection to represent the contents of the buckets
 (e.g. built-in `ArrayList` or `LinkedList`, array). You may find some of
 these easier than others.
 
-Your implementation _must_ have the following worst-case behavior (you may
-take into account, for `set`, that the worst-case re-hashing behavior is
-shared across all copies):
+Here are notes, including required runtimes, for each of the methods you will
+implement from the `DefaultMap` interface. Your implementation _must_ have
+the given worst-case behavior:
 
 - `set`: O(loadFactor)
-- `get`: O(loadFactor)
-- `containsKey`: O(loadFactor)
-- `size`: O(1)
-- `defaultValue`: O(1)
-- `keys`: O(n * lg(n)) [ where n is the number of keys ]
-- `values`: O(n * lg(n)) [ where n is the number of keys ]
 
-Your implementation _must_ resize and rehash in `set` if _adding the element_
-would exceed the specified load factor.
+  `set` should insert the given key/value association if it isn't present, and
+  _then_, if the table's loadFactor exceeds the threshold, expand the buckets
+  array and rehash all elements.
+
+  If the key is already present, `set` should update the value stored there.
+- `get`: O(loadFactor)
+
+  `get`, as in PA6, should throw `NoSuchElement` if `defaultValue` is `null`
+  and the key is not found. It should return the `defaultValue` if it is
+  non-`null` and the key isn't found.
+- `size`: O(1)
+
+   `size` should return the number of keys stored in the table.
+- `keys`: O(n) _where n is the number of keys_
+
+  `keys` should return all the keys stored in the table in a list, in any
+  order.
+- `values`: O(n) _where n is the number of keys_
+
+  `values` should return all the keys stored in the table in a list, in any
+  order.
+- `defaultValue`: O(1)
+- `containsKey`: O(loadFactor)
+
+You will submit your implementation under the `pa6` assignment by Wednesday
+midnight.
 
 ## Measurement Methods and README
 
 In addition to the `DefaultMap` interface, you must provide several other
-methods that are implemented on `HTDefaultMap`:
+methods that are implemented only on `HTDefaultMap`:
 
-- `public int lifetimeCollisions()`: The total number of times a collision
+- `public int totalCollisions()`: The total number of times a collision
 has occurred in set (across all rehashes and all insertions)
 - `public int currentCapacity()`: The current length of the array of buckets
 - `public double currentLoadFactor()`: The current size / capacity ratio
@@ -84,20 +104,24 @@ hash table (this doesn't have to be particularly fast; it can work by walking
 over the whole table)
 
 You will use these to perform three interesting experiments. Your experiments
-should each have a workload, and an independent variable, and a dependent
-variable. Here are some examples, but you can pick anything you like:
+should each have a configuration, a workload, and an independent variable,
+and a dependent variable. Here are some examples, but you can pick anything
+you like:
 
 - Idea 1:
+    - Configuration: built-in `hashCode()` method, load factor 0.75, expansion factor 4
     - Workload: 10000000 uses of `set` with 1000000 different keys
     - Independent: initial capacity
     - Dependent: number of total collisions
 - Idea 2:
+    - Configuration: built-in `hashCode()` method, initial capacity 40, load factor 0.66
     - Workload: 10000000 sets as setup, followed by 10000 gets of existing keys
     - Independent: expansionFactor
     - Dependent: number of milliseconds for all the gets to complete
 
 One of your experiments _must_ involve changing the hash function from the
-default hashCode provided by Java.
+default hashCode provided by Java, by providing a non-`null` value for
+`hasher`.
 
 For each of the three experiments, provide a plot describing the data, and a
 few sentences about why it is interesting. You might discuss if you think the
@@ -112,6 +136,20 @@ midnight.
 
 You will write unit tests for your implementation, and we will provide a
 handful of bad implementations, along with a reference, for you to run your
-tests against. You must write tests that pass on the reference and detect at least
-one bad implementation by the milestone on Monday midnight.
+tests against. You must write tests that pass on the references and detect at
+least one bad implementation by the milestone on Monday midnight.
 
+Note that for `keys` and `values`, any returned order is acceptable! Keep
+this in mind for testing, since the reference implementations might not
+return things in the same order.
+
+You will submit your tests (by submitting your whole repo as usual) to the
+`pa6-milestone` assignment Monday midnight, and the `pa6` assignment (along
+with the rest of your code) by Wednesday midnight.
+
+## Grading
+
+- 3% A writeup quiz
+- 15% Milestone
+- 27% Testing
+- 55% Implementation
