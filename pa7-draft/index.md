@@ -71,7 +71,7 @@ the given worst-case behavior:
   If the key is already present, `set` should update the value stored there.
   
   
-  [Here](./pa7 diagram.png) is an example of the structure of data when some keys are set, and when the HashTable expands and rehashes.
+  [Here](pa7.png) is an example of the structure of data when some keys are set, and when the HashTable expands and rehashes.
 
 - `get`: O(loadFactor)
 
