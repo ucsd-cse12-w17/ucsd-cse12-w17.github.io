@@ -69,11 +69,11 @@ the given worst-case behavior:
   array and rehash all elements.
 
   If the key is already present, `set` should update the value stored there.
+  
+  
+  [Here](./pa7 diagram.png) is an example of the structure of data when some keys are set, and when the HashTable expands and rehashes.
+
 - `get`: O(loadFactor)
-
-Here is an example of the structure of data when some keys are set, and when the HashTable expands and rehashes.
-
-<img width="100%" src="./pa7 diagram.png">
 
 
   `get`, as in PA6, should throw `NoSuchElement` if `defaultValue` is `null`
