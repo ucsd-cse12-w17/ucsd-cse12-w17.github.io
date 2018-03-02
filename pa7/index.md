@@ -38,7 +38,7 @@ for bucket storage. The array must be initialized to this size if it is
 provided.
 - `loadThreshold` is the ratio of elements to capacity at which the collection
 will increase in capacity and rehash all elements. In each set, if the size
-to capacity ratio exceeds the loadFactor _after_ performing the insert, a
+to capacity ratio equals or exceeds the loadFactor _after_ performing the insert, a
 rehash must be performed (after makes sense because at the beginning it's not
 clear if a `set` will increase the size or update an existing key).
 - `expansionFactor` is the factor to multiply the capacity by on each
@@ -65,7 +65,7 @@ the given worst-case behavior:
 - `set`: O(loadFactor)
 
   `set` should insert the given key/value association if it isn't present, and
-  _then_, if the table's loadFactor exceeds the threshold, expand the buckets
+  _then_, if the table's loadFactor equals or exceeds the threshold, expand the buckets
   array and rehash all elements.
 
   If the key is already present, `set` should update the value stored there.
