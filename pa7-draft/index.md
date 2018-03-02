@@ -71,6 +71,11 @@ the given worst-case behavior:
   If the key is already present, `set` should update the value stored there.
 - `get`: O(loadFactor)
 
+Here is an example of the structure of data when some keys are set, and when the HashTable expands and rehashes.
+
+<img width="100%" src="./pa7 diagram.png">
+
+
   `get`, as in PA6, should throw `NoSuchElement` if `defaultValue` is `null`
   and the key is not found. It should return the `defaultValue` if it is
   non-`null` and the key isn't found.
@@ -88,7 +93,7 @@ the given worst-case behavior:
 - `defaultValue`: O(1)
 - `containsKey`: O(loadFactor)
 
-You will submit your implementation under the `pa6` assignment by Wednesday
+You will submit your implementation under the `pa7` assignment by Wednesday
 midnight.
 
 ## Measurement Methods and README
@@ -145,7 +150,7 @@ this in mind for testing, since the reference implementations might not
 return things in the same order.
 
 You will submit your tests (by submitting your whole repo as usual) to the
-`pa6-milestone` assignment Monday midnight, and the `pa6` assignment (along
+`pa7-milestone` assignment Monday midnight, and the `pa7` assignment (along
 with the rest of your code) by Wednesday midnight.
 
 ## Grading
