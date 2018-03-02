@@ -55,7 +55,8 @@ represent the capacity of the table.
 
 You may choose _any_ collection to represent the contents of the buckets
 (e.g. built-in `ArrayList` or `LinkedList`, array). You may find some of
-these easier than others.
+these easier than others. We have provided a _suggested_ field that you can
+use, which has type `List<Pair<K,V>>`; you can use this as is or change it.
 
 Here are notes, including required runtimes, for each of the methods you will
 implement from the `DefaultMap` interface. Your implementation _must_ have
