@@ -88,7 +88,7 @@ the given worst-case behavior:
   order.
 - `values`: O(n) _where n is the number of keys_
 
-  `values` should return all the keys stored in the table in a list, in any
+  `values` should return all the values stored in the table in a list, in any
   order.
 - `defaultValue`: O(1)
 - `containsKey`: O(loadFactor)
