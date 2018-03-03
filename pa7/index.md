@@ -32,23 +32,25 @@ public HTDefaultMap(V defaultValue, int startCapacity, double loadThreshold, int
 The meaning of each parameter is:
 
 - `defaultValue` has the same meaning as in PA6 (including the meaning of
-`null`)
-- `startCapacity` is the initial size of the array the implementation uses
-for bucket storage. The array must be initialized to this size if it is
-provided.
+  `null`)
+- `startCapacity` is the initial size of the array the implementation uses for
+  bucket storage. The array must be initialized to this size if it is provided.
 - `loadThreshold` is the ratio of elements to capacity at which the collection
-will increase in capacity and rehash all elements. In each set, if the size
-to capacity ratio equals or exceeds the loadFactor _after_ performing the insert, a
-rehash must be performed (after makes sense because at the beginning it's not
-clear if a `set` will increase the size or update an existing key).
-- `expansionFactor` is the factor to multiply the capacity by on each
-expansion and rehash. For example, we used 2 in class to mean “double the
-size on each expansion”. This should be positive, and be 2 or greater.
+  will increase in capacity and rehash all elements. In each set, if the size
+  to capacity ratio equals or exceeds the loadFactor _after_ performing the
+  insert, a rehash must be performed (after makes sense because at the
+  beginning it's not clear if a `set` will increase the size or update an
+  existing key).
+- `expansionFactor` is the factor to multiply the capacity by on each expansion
+  and rehash. For example, we used 2 in class to mean “double the size on each
+  expansion”. This should be positive, and be 2 or greater.
 - `hasher` is an implementation of the `Hasher` interface which provides a
-user-customized hash function. If `hasher` isn't provided or is `null`, the
-hash code for each key should be determined by using the built-in
-`hashCode()` method on the key. If `hasher` _is_ provided, the hash code for
-each key should be determined by calling the `hasher.hash` method.
+  user-customized hash function. If `hasher` isn't provided or is `null`, the
+  hash code for each key should be determined by using the built-in
+  `hashCode()` method on the key. If `hasher` _is_ provided, the hash code for
+  each key should be determined by calling the `hasher.hash` method. Note that
+  `hash` might return a negative value: use `Math.abs` on the result in your
+  hash table implementation to avoid a negative index.
 
 You _must_ use an array to store the buckets, and its length should always
 represent the capacity of the table.
