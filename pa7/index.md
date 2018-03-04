@@ -62,38 +62,47 @@ use, which has type `List<Pair<K,V>>`; you can use this as is or change it.
 
 Here are notes, including required runtimes, for each of the methods you will
 implement from the `DefaultMap` interface. Your implementation _must_ have
-the given worst-case behavior:
+the given worst-case behavior when given a good hash function:
 
-- `set`: O(loadFactor)
+- `set`: O(loadFactor) averaged across calls, O(n) for a single call
 
   `set` should insert the given key/value association if it isn't present, and
   _then_, if the table's loadFactor equals or exceeds the threshold, expand the buckets
   array and rehash all elements.
 
   If the key is already present, `set` should update the value stored there.
-  
+
+  Based on the argument we made in lecture, we know that if the hash function
+  is good and the expansion factor is at least 2, the copies we make will
+  average out to a single extra bit of constant work per element inserted. That
+  said, a single call may take linear (_O(n)_) time, since all the elements
+  need to be rehashed and reinserted.
   
   [Here](pa7.png) is an example of the structure of data when some keys are set, and when the HashTable expands and rehashes.
 
-- `get`: O(loadFactor)
-
+- `get`: O(loadFactor) [O(n) if given a bad hash function]
 
   `get`, as in PA6, should throw `NoSuchElement` if `defaultValue` is `null`
   and the key is not found. It should return the `defaultValue` if it is
   non-`null` and the key isn't found.
+
 - `size`: O(1)
 
    `size` should return the number of keys stored in the table.
+
 - `keys`: O(n) _where n is the number of keys_
 
   `keys` should return all the keys stored in the table in a list, in any
   order.
+
 - `values`: O(n) _where n is the number of keys_
 
   `values` should return all the values stored in the table in a list, in any
   order.
+
 - `defaultValue`: O(1)
-- `containsKey`: O(loadFactor)
+
+- `containsKey`: O(loadFactor) [O(n) if given a bad hash function]
 
 You will submit your implementation under the `pa7` assignment by Wednesday
 midnight.
