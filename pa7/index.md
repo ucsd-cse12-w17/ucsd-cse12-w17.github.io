@@ -72,6 +72,8 @@ the given worst-case behavior when given a good hash function:
 
   If the key is already present, `set` should update the value stored there.
 
+  It should throw an `IllegalArgumentException` if the key is `null`.
+
   Based on the argument we made in lecture, we know that if the hash function
   is good and the expansion factor is at least 2, the copies we make will
   average out to a single extra bit of constant work per element inserted. That
@@ -84,7 +86,8 @@ the given worst-case behavior when given a good hash function:
 
   `get`, as in PA6, should throw `NoSuchElement` if `defaultValue` is `null`
   and the key is not found. It should return the `defaultValue` if it is
-  non-`null` and the key isn't found.
+  non-`null` and the key isn't found. It should throw an
+  `IllegalArgumentException` if the key is `null`.
 
 - `size`: O(1)
 
