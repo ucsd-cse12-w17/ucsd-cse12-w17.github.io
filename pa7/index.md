@@ -172,4 +172,7 @@ with the rest of your code) by Wednesday midnight.
 - 3% A writeup quiz
 - 15% Milestone
 - 27% Testing
-- 55% Implementation
+- 55% Implementation & Experiments
+  - 40% implementation
+  - 5% per experiment
+
