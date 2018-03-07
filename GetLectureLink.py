@@ -14,7 +14,7 @@ os.chdir(lecture_path)
 lectures = glob.glob('./*')
 
 
-for lecture in lectures:
+for lecture in sorted(lectures):
 
   os.chdir(lecture)
 
