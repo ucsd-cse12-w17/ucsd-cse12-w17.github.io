@@ -149,6 +149,10 @@ pattern shown will extend beyond the data you graphed it for, if you think it
 demonstrates evidence for a best practice in using hash tables, if you
 learned something particularly interesting from it, and so on.
 
+Here is an example of a simple plot:
+
+<img src="./Chart.png" width="50%">
+
 You will submit these as `pa7-written`, as a single PDF file, by Wednesday
 midnight.
 
