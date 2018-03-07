@@ -151,7 +151,7 @@ learned something particularly interesting from it, and so on.
 
 Here is an example of a simple plot:
 
-<img src="./Chart.png" width="50%">
+<img src="./Chart.png" width="75%">
 
 You will submit these as `pa7-written`, as a single PDF file, by Wednesday
 midnight.
