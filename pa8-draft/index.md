@@ -210,7 +210,11 @@ OK (1 test)
 ==5758== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
 
-`valgrind` can catch even more than unfreed memory. Consider this silly test:
+This is the kind of output you should see when things are in a happy state – no
+memory errors, all heap blocks freed, and all tests passing!
+
+It's important to point out that `valgrind` can catch even more than unfreed
+memory. Consider this silly test:
 
 ```
 void SillyTest(CuTest *tc) {
