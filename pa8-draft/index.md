@@ -78,6 +78,12 @@ struct Heap {
 typedef struct Heap Heap;
 ```
 
+The `heap.h` file holds all these definitions, and is called a _header file_. C
+programs are often organized with definitions in one file and declarations in
+another. This is done (at a high level) to help C's compiler, which doesn't
+have the same features Java's compiler has for traversing the filesystem to
+find all the relevant source files.
+
 In `heap.c`, you will write implementations of these functions. Your
 implementation will be a **min heap** (the mapping with the lowest key will be
 on top). Some notes on the required algorithms are at
