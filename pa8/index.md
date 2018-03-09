@@ -14,7 +14,7 @@ regrades_. We'll include all the information about your grade with the
 autograder, so you'll know your grade before submission.
 
 
-The Write-up quiz can be found here, as is due before Monday midnight.
+The Write-up quiz can be found here, and is due before Monday midnight.
 
 [https://docs.google.com/forms/d/e/1FAIpQLScMLQm3JTwOj5j-hZ_4iQYcqkpIOw5APnz83uwkXoogorwR4Q/viewform](https://docs.google.com/forms/d/e/1FAIpQLScMLQm3JTwOj5j-hZ_4iQYcqkpIOw5APnz83uwkXoogorwR4Q/viewform)
 
