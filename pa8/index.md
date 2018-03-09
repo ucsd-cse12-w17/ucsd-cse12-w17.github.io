@@ -33,6 +33,10 @@ Note that it also has some background information on running C from the command
 line. We've provided the commands you need in a `Makefile` and detailed them
 below, but the background in the document explains the underlying commands.
 
+
+Also note that the PA is not set up with Eclipse, so directly importing the code into Eclipse will not create a project. Instead, you can `git clone <url_to_repo>` in Terminal to pull the code, and then use any Text Editor or Eclipse to edit the files.
+
+
 ## Two Practice Exercises
 
 First, you're going to do two warm-up exercises. These are be due by Monday
