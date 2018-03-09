@@ -95,14 +95,151 @@ Descriptions of each function are:
 - `cleanupHeap`: Should use `free` to reclaim the memory used by the given Heap
   pointer, including its `elements` array.
 
-
 ## Testing
 
 You can write tests in `test_heap.c`, where there are some examples given of
 using arithmetic and checking numeric equality, and checking equality between
 strings. You should write tests that create heaps, add and remove items, and
 check that the operations work as expected. The two relevant functions for
-writing assertions are `CuAssertEquals
+writing assertions are `CuAssertIntEquals` and `CuAssertStrEquals`. In this
+testing framework we need to use the equality method that matches the type we
+are testing.
+
+You can run the tests with
+
+```
+make test
+```
+
+## Checking Memory
+
+You'll see output like this when the tests run:
+
+```
+[cs12w@ieng6-203]:pa8-implementation:642$ make test
+gcc -g -Wall -o test_heap.run heap.c test_heap.c cutest/CuTest.c
+valgrind --leak-check=full --undef-value-errors=no ./test_heap.run
+==32451== Memcheck, a memory error detector
+==32451== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==32451== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==32451== Command: ./test_heap.run
+==32451==
+.
+
+OK (1 test)
+
+==32451==
+==32451== HEAP SUMMARY:
+==32451==     in use at exit: 176 bytes in 2 blocks
+==32451==   total heap usage: 8 allocs, 6 frees, 16,913 bytes allocated
+==32451==
+==32451== 176 (16 direct, 160 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==32451==    at 0x4C29BE3: malloc (vg_replace_malloc.c:299)
+==32451==    by 0x400FCD: makeHeap (heap.c:101)
+==32451==    by 0x401017: TestHeap (test_heap.c:7)
+==32451==    by 0x40167E: CuTestRun (CuTest.c:144)
+==32451==    by 0x401CE4: CuSuiteRun (CuTest.c:292)
+==32451==    by 0x4010F1: RunAllTests (test_heap.c:29)
+==32451==    by 0x401156: main (test_heap.c:40)
+==32451==
+==32451== LEAK SUMMARY:
+==32451==    definitely lost: 16 bytes in 1 blocks
+==32451==    indirectly lost: 160 bytes in 1 blocks
+==32451==      possibly lost: 0 bytes in 0 blocks
+==32451==    still reachable: 0 bytes in 0 blocks
+==32451==         suppressed: 0 bytes in 0 blocks
+==32451==
+==32451== For counts of detected and suppressed errors, rerun with: -v
+==32451== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+```
+
+The part that says "OK (1 test)" will reflect the number of tests you've
+written, and is like the JUnit output for your tests.
+
+The rest is the output of a tool called `valgrind`, which checks the memory
+usage of programs. In this case, it's saying that there are 176 bytes of memory
+left in use at the end of the program. You'll probably see something like this
+early on, until you implement `cleanupHeap`. It means that memory that was
+earlier `malloc`ed was never freed. You should make sure to free all memory
+that is allocated in each test by using `cleanupHeap` on any heaps you create.
+When there are no memory errors and no memory leaks, you'll see a message like this:
+
+```
+[cs12w@ieng6-203]:pa8-implementation:649$ make test
+gcc -g -Wall -o test_heap.run heap.c test_heap.c cutest/CuTest.c
+valgrind --leak-check=full --undef-value-errors=no ./test_heap.run
+==5758== Memcheck, a memory error detector
+==5758== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==5758== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==5758== Command: ./test_heap.run
+==5758==
+.
+
+OK (1 test)
+
+==5758==
+==5758== HEAP SUMMARY:
+==5758==     in use at exit: 0 bytes in 0 blocks
+==5758==   total heap usage: 8 allocs, 8 frees, 16,913 bytes allocated
+==5758==
+==5758== All heap blocks were freed -- no leaks are possible
+==5758==
+==5758== For counts of detected and suppressed errors, rerun with: -v
+==5758== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
+`valgrind` can catch even more than unfreed memory. Consider this silly test:
+
+```
+void SillyTest(CuTest *tc) {
+  Heap* h = NULL;
+  CuAssertIntEquals(tc, 0, h->capacity);
+}
+```
+
+If we run `make test` on this, we'll see this output:
+
+
+```
+[cs12w@ieng6-203]:pa8-implementation:664$ make test
+gcc -g -Wall -o test_heap.run heap.c test_heap.c cutest/CuTest.c
+valgrind --leak-check=full --undef-value-errors=no ./test_heap.run
+==22849== Memcheck, a memory error detector
+==22849== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==22849== Using Valgrind-3.12.0 and LibVEX; rerun with -h for copyright info
+==22849== Command: ./test_heap.run
+==22849==
+==22849== Invalid read of size 4
+==22849==    at 0x40101A: SillyTest (test_heap.c:8)
+==22849==    by 0x4016EB: CuTestRun (CuTest.c:144)
+==22849==    by 0x401D51: CuSuiteRun (CuTest.c:292)
+==22849==    by 0x40115E: RunAllTests (test_heap.c:34)
+==22849==    by 0x4011C3: main (test_heap.c:45)
+==22849==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
+==22849==
+==22849==
+==22849== Process terminating with default action of signal 11 (SIGSEGV)
+==22849==  Access not within mapped region at address 0x0
+==22849==    at 0x40101A: SillyTest (test_heap.c:8)
+==22849==    by 0x4016EB: CuTestRun (CuTest.c:144)
+==22849==    by 0x401D51: CuSuiteRun (CuTest.c:292)
+==22849==    by 0x40115E: RunAllTests (test_heap.c:34)
+==22849==    by 0x4011C3: main (test_heap.c:45)
+==22849==  If you believe this happened as a result of a stack
+==22849==  overflow in your program's main thread (unlikely but
+==22849==  possible), you can try to increase the size of the
+==22849==  main thread stack using the --main-stacksize= flag.
+==22849==  The main thread stack size used in this run was 8388608.
+... more output down here ...
+```
+
+One important thing to note is that this is **not** a stack overflow – this
+message will show up in some valgrind output. This output is actually giving
+the same kind of meaning as `NullPointerException` in Java. the `Invalid read
+of size 4` pinpoints the line on which it happens, and means that we tried
+reading an invalid pointer (at address `0x0`, which is address `0`, which is
+the same as `NULL`).
+
 
 ## Grading
 
