@@ -82,7 +82,10 @@ Descriptions of each function are:
   the current capacity and copying old elements over before performing the
   insertion.
 - `removeMin`: Should return the value stored at the top of the heap (the one
-  with the lowest priority). That element should then be removed from the heap.
+  with the lowest priority). That element should then be removed from the heap,
+  and the heap should be restored to the correct shape by moving the last
+  element to the top and bubbling down. When performing bubble down, prefer
+  swapping with the **left** child if both children have the same priority.
   If the heap is empty, return `NULL`. Should run in `O(lg(size))` time.
 - `peek`: Should return the value stored at the top of the heap (the one with
   the lowest priority) and make no changes to the heap. If the heap is empty,
@@ -95,4 +98,21 @@ Descriptions of each function are:
 
 ## Testing
 
-You can 
+You can write tests in `test_heap.c`, where there are some examples given of
+using arithmetic and checking numeric equality, and checking equality between
+strings. You should write tests that create heaps, add and remove items, and
+check that the operations work as expected. The two relevant functions for
+writing assertions are `CuAssertEquals
+
+## Grading
+
+An autograder for the heaps portion will be posted on Saturday, March 10.
+
+The practice problems and writeup quiz are due by Monday midnight (March 12).
+The entire assignment is due by Wednesday midnight (March 14).
+
+- 10%: Practice problems
+- 3%: A PA writeup quiz
+- 27%: Quality of testing
+- 70%: Implementation correctness
+
