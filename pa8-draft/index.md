@@ -66,8 +66,8 @@ In `heap.c`, you will write implementations of these functions. Your
 implementation will be a **min heap** (the mapping with the lowest key will be
 on top). Some notes on the required algorithms are at
 
-- [Wed, Feb 14th lecture](https://ucsd-cse12-w17.github.io/lectures/02-14-wed-b/notes.html)
-- [Fri, Feb 16th lecture](https://ucsd-cse12-w17.github.io/lectures/02-16-fri-b/notes.html)
+- [Wed, Feb 14th lecture](https://ucsd-cse12-w17.github.io/lectures/02-14-wed-c/notes.html)
+- [Fri, Feb 16th lecture](https://ucsd-cse12-w17.github.io/lectures/02-16-fri-c/notes.html)
 
 Descriptions of each function are:
 
