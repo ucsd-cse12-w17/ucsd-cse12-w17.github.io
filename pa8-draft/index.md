@@ -13,6 +13,20 @@ Note that this assignment is _entirely autograded_, and there will be _no
 regrades_. We'll include all the information about your grade with the
 autograder, so you'll know your grade before submission.
 
+## Using C on the Lab Machines
+
+For this PA, you should use the lab machines. If you want to set up C on your
+own laptop, you're welcome to, but we probably won't be able to help.
+
+This document has instructions on finding your account and getting logged in,
+and working remotely if you'd like:
+
+[https://docs.google.com/document/d/1zxXlY36LOfpI4Z3zr70u3AImMirsUUBaomX9Vf7T0xg/edit](https://docs.google.com/document/d/1zxXlY36LOfpI4Z3zr70u3AImMirsUUBaomX9Vf7T0xg/edit)
+
+Note that it also has some background information on running C from the command
+line. We've provided the commands you need in a `Makefile` and detailed them
+below, but the background in the document explains the underlying commands.
+
 ## Two Practice Exercises
 
 First, you're going to do two warm-up exercises. These are be due by Monday
@@ -22,7 +36,9 @@ midnight and worth 10% of your grade.
   that appears to work, but has some memory errors. You will use `valgrind` to
   detect and fix the memory errors. You can run this example with `make insert`, which will run the necessary valgrind command. You'll hand in the corresponding fixed C file.
 - `struct_of_picture.c`: In this file, you will write initialization code to
-  construct data that matches the pictures shown below. You'll hand in a C file that makes the `main` method print both `"You got ans1!"` and `"You got ans2!"`
+  construct data that matches the pictures shown below. You'll hand in a C file
+  that makes the `main` method print both `"You got ans1!"` and `"You got
+  ans2!"` Run with `make struct_of_picture`.
 
 <img src="ans1.png" width="100%">
 <img src="ans2.png" width="100%">
