@@ -21,7 +21,8 @@ own laptop, you're welcome to, but we probably won't be able to help.
 This document has instructions on finding your account and getting logged in,
 and working remotely if you'd like:
 
-[https://docs.google.com/document/d/1zxXlY36LOfpI4Z3zr70u3AImMirsUUBaomX9Vf7T0xg/edit](https://docs.google.com/document/d/1zxXlY36LOfpI4Z3zr70u3AImMirsUUBaomX9Vf7T0xg/edit)
+[https://docs.google.com/document/d/1zxXlY36LOfpI4Z3zr70u3AImMirsUUBaomX9Vf7T0xg/edit?usp=sharing](https://docs.google.com/document/d/1zxXlY36LOfpI4Z3zr70u3AImMirsUUBaomX9Vf7T0xg/edit?usp=sharing)
+
 
 Note that it also has some background information on running C from the command
 line. We've provided the commands you need in a `Makefile` and detailed them
