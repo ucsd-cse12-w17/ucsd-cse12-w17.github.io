@@ -287,5 +287,5 @@ The entire assignment is due by Wednesday midnight (March 14).
 - 10%: Practice problems
 - 3%: A PA writeup quiz
 - 27%: Quality of testing
-- 70%: Implementation correctness
+- 60%: Implementation correctness
 
