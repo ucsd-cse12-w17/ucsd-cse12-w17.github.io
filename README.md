@@ -85,3 +85,7 @@ https://ucsd-cse12-w17.github.io/lectures/03-09-fri/notes.html
 
 https://ucsd-cse12-w17.github.io/lectures/03-09-fri/notesB.html
 
+https://ucsd-cse12-w17.github.io/lectures/03-12-mon/notes.html
+
+https://ucsd-cse12-w17.github.io/lectures/03-12-mon/notesb.html
+
