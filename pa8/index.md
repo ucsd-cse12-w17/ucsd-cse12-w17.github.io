@@ -6,6 +6,9 @@ doodle: "/doodle.png"
 
 <h1>{{ page.title }}</h1>
 
+***Update**: The starter code has been updated to resolve some inconsistencies with the write-up. 
+You can find the starter code here: [https://github.com/ucsd-cse12-w17/pa8-starter/](https://github.com/ucsd-cse12-w17/pa8-starter/)
+*
 In this assignment you'll get some practice with C, and you'll implement and
 test a min-heap in C, paying careful attention to memory allocation.
 
