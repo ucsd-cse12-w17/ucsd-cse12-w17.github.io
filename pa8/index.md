@@ -131,6 +131,13 @@ Descriptions of each function are:
 - `cleanupHeap`: Should use `free` to reclaim the memory used by the given Heap
   pointer, including its `elements` array.
 
+Note that the reference implementation, in bubbleUp/Down, _does_ perform swaps
+between equal elements. If you write tests with many duplicates, you might run
+into this behavior. We don't test in detail for either direction here, so your
+implementation can go either way. However, if you write tests that explicitly
+check for not bubbling past equal elements, they won't succeed on our
+implementation.
+
 ## Testing
 
 You can write tests in `test_heap.c`, where there are some examples given of
